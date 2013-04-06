@@ -50,5 +50,6 @@ def main():
 
     json.dump({'ratings': ratings}, sys.stdout, sort_keys=True, indent=4)
 
+
 if __name__ == '__main__':
     main()
