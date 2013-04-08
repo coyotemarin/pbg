@@ -4,7 +4,7 @@ usage:
 
 ROOT_URL=http://www.hrc.org/apps/buyersguide
 curl -L --compressed $ROOT_URL > hrc.html
-python -m mbg.hrc.buyersguide.urls hrc.html > hrc-urls.txt
+python -m pbg.hrc.buyersguide.urls hrc.html > hrc-urls.txt
 
 See data.py for what to do next
 """

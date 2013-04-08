@@ -2,14 +2,14 @@
 
 ROOT_URL=http://www.hrc.org/apps/buyersguide
 curl -L --compressed $ROOT_URL > hrc.html
-python -m mbg.hrc.buyersguide.urls hrc.html > hrc-urls.txt
+python -m pbg.hrc.buyersguide.urls hrc.html > hrc-urls.txt
 
 rm -rf hrc-pages
 mkdir hrc-pages
 for path in $(cat hrc-urls.txt)
     do curl -L --compressed $ROOT_URL/$path > hrc-pages/$path.html
 done
-python -m mbg.hrc.buyersguide.data hrc.html hrc-pages/*.html > hrc.json
+python -m pbg.hrc.buyersguide.data hrc.html hrc-pages/*.html > hrc.json
 """
 # TODO: parse http://www.hrc.org/apps/buyersguide/how-to-use.php
 # and include info on what the ratings mean

@@ -8,13 +8,13 @@ PARTIALLY COMPLETE:
 
 Human Rights Campaign Buying Guide
 - http://www.hrc.org/apps/buyersguide
-- Python: mbg.hrc.buyersguide.*
+- Python: pbg.hrc.buyersguide.*
 - needs rating explanation
 - needs donation URL
 
 Cornucopia Institute Organic Egg Scorecard
 - http://www.cornucopia.org/organic-egg-scorecard/
-- Python: mbg.cornucopia.eggs
+- Python: pbg.cornucopia.eggs
 - need to update output format to match HRC guide
 - needs rating explanation
 - needs donation URL

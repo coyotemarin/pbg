@@ -1,6 +1,6 @@
 # usage:
 # curl http://www.cornucopia.org/organic-egg-scorecard/ > eggs.html
-# python -m mbg.cornucopia.eggs < eggs.html
+# python -m pbg.cornucopia.eggs < eggs.html
 import json
 import sys
 
