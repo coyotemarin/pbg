@@ -22,8 +22,9 @@ Cornucopia Institute Organic Egg Scorecard
 
 TO WRITE PARSERS FOR:
 
-(In rough order of priority. Disclaimer: just because something is on this
-list does not mean I fully or even partially support it.)
+(In roughly order of priority, but work on whatever interests you. Disclaimer: 
+just because something is on this list does not mean I fully or even partially
+support it.)
 
 boycottkochbrothers.com - Boycott Koch Industries
 - http://www.boycottkochbrothers.com/
