@@ -86,7 +86,7 @@ Other guidelines:
   * Output (unicode) text, not HTML.
 * Try to make scripts that just process data, and leave network access to
   other processes (e.g. curl).
-  * See the top of [pbg.hrc.buyersguide.data] for an example two-step process
+  * See the top of [pbg.hrc.buyersguide.data](https://github.com/davidmarin/pbg/blob/master/python/pbg/hrc/buyersguide/data.py) for an example two-step process
     that processes multiple pages on one site. If you are recursively scraping
     a website to an unknown depth, you are probably off track.
 * Write unit tests for shared/general code, but don't worry about testing
