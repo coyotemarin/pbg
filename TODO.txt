@@ -1,52 +1,3 @@
-Master Buying Guides List
-
-
-GOALS IN CHOOSING GUIDES:
-
-- Focus on guides relevant to:
-  - consumers (not investors, workers, businesses, volunteers, etc.)
-  - who are in the U.S. (San Francisco especially)
-  - who are politically progressive (however you define that)
-  Basically, this needs to work for someone before it can work for everyone,
-  and I need to be able to dogfood it and test it on my friends. Feel free
-  to add other campaigns/guides to the OUT OF SCOPE section below.
-- Choose guides on sites that allow or do not explicitly ban scraping
-  (look at /robots.txt and the Terms of Use, if any)
-- Try to expose corner cases early:
-  - Include a variety of targets (companies, brands, products, foods)
-  - Aim for some overlap between guides, especially conflicting recommendations
-- Avoid guides that have not been updated for more than a year.
-- Prefer campaigns that have a decent-sized following (usually this means
-  they're backed by some sort of non-profit). Nothing against change.org
-  petitions, but they need to be successful and accurate. A consumer campaign
-  with no supporters is not really a campaign.
-- Simple guides targeting a single company or product are A-OK.
-- Avoid "astroturf"; that is guides published by non-profits that are really
-  a front for industry.
-
-
-GOALS IN WRITING SCRAPERS:
-
-- Accuracy above all else; scrapers should fail fast in the presence of
-  unexpected changes rather than producing bad or incomplete data.
-  (In Python, use pyassert).
-- Include as much data as possible. Exceptions:
-  - In large guides, try to avoid needing to download one page per product.
-  - Don't scrape the long-form description of the campaign; try to grab
-    a one-or-two paragraph summary and link to the rest.
-  - Output (unicode) text, not HTML.
-- Include donation URLs, links to other ways to take action, and anything else
-  that will benefit the guide's publisher or their cause.
-- Scripts that run on Python 2.6-3.x are preferred, other languages OK.
-- Try to make scripts that just process data, and leave network access to
-  other processes (e.g. curl).
-  - See the top of python/mbg/hrc/data.py for an example two-step process
-  that processes multiple pages on one site. If you are recursively scraping
-  a website to an unknown depth, you are probably off track.
-- Write unit tests for common code, but don't worry about writing tests for
-  individual scrapers. They will be continuously integration-tested anyway.
-
-
 COMPLETE:
 
 Nothing can be here yet, as there is not yet a defined data format or
@@ -57,7 +8,7 @@ PARTIALLY COMPLETE:
 
 Human Rights Campaign Buying Guide
 - http://www.hrc.org/apps/buyersguide
-- Python: mbg.hrc.*
+- Python: mbg.hrc.buyersguide.*
 - needs rating explanation
 - needs donation URL
 
