@@ -108,7 +108,7 @@ sort of indexable JSON data store, probably
 Next, I'll make an initial API. I've come to terms with the fact that my API
 probably won't be a pure Couch App (too many needs for joins, especially when
 you get into users subscribing to campaigns; filtering by location is a bit
-of a bear as well), but might look a lot like Couch.
+of a bear as well), but it might look a lot like Couch.
 
 Finally, I'll make a mobile website that runs off the API. Initially, I'll
 open it up to friends and people who contribute to this project, but as soon
