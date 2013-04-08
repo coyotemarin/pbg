@@ -1,0 +1,168 @@
+Master Buying Guides List
+
+
+GOALS IN CHOOSING GUIDES:
+
+- Focus on guides relevant to:
+  - consumers (not investors, workers, businesses, volunteers, etc.)
+  - who are in the U.S. (San Francisco especially)
+  - who are politically progressive (however you define that)
+  Basically, this needs to work for someone before it can work for everyone,
+  and I need to be able to dogfood it and test it on my friends. Feel free
+  to add other campaigns/guides to the OUT OF SCOPE section below.
+- Choose guides on sites that allow or do not explicitly ban scraping
+  (look at /robots.txt and the Terms of Use, if any)
+- Try to expose corner cases early:
+  - Include a variety of targets (companies, brands, products, foods)
+  - Aim for some overlap between guides, especially conflicting recommendations
+- Avoid guides that have not been updated for more than a year.
+- Prefer campaigns that have a decent-sized following (usually this means
+  they're backed by some sort of non-profit). Nothing against change.org
+  petitions, but they need to be successful and accurate. A consumer campaign
+  with no supporters is not really a campaign.
+- Simple guides targeting a single company or product are A-OK.
+- Avoid "astroturf"; that is guides published by non-profits that are really
+  a front for industry.
+
+
+GOALS IN WRITING SCRAPERS:
+
+- Accuracy above all else; scrapers should fail fast in the presence of
+  unexpected changes rather than producing bad or incomplete data.
+  (In Python, use pyassert).
+- Include as much data as possible. Exceptions:
+  - In large guides, try to avoid needing to download one page per product.
+  - Don't scrape the long-form description of the campaign; try to grab
+    a one-or-two paragraph summary and link to the rest.
+  - Output (unicode) text, not HTML.
+- Include donation URLs, links to other ways to take action, and anything else
+  that will benefit the guide's publisher or their cause.
+- Scripts that run on Python 2.6-3.x are preferred, other languages OK.
+- Try to make scripts that just process data, and leave network access to
+  other processes (e.g. curl).
+  - See the top of python/mbg/hrc/data.py for an example two-step process
+  that processes multiple pages on one site. If you are recursively scraping
+  a website to an unknown depth, you are probably off track.
+- Write unit tests for common code, but don't worry about writing tests for
+  individual scrapers. They will be continuously integration-tested anyway.
+
+
+COMPLETE:
+
+Nothing can be here yet, as there is not yet a defined data format or
+a standard for completeness.
+
+
+PARTIALLY COMPLETE:
+
+Human Rights Campaign Buying Guide
+- http://www.hrc.org/apps/buyersguide
+- Python: mbg.hrc.*
+- needs rating explanation
+- needs donation URL
+
+Cornucopia Institute Organic Egg Scorecard
+- http://www.cornucopia.org/organic-egg-scorecard/
+- Python: mbg.cornucopia.eggs
+- need to update output format to match HRC guide
+- needs rating explanation
+- needs donation URL
+
+
+TO WRITE SCRAPERS FOR:
+
+(In rough order of priority. Disclaimer: just because something is on this
+list does not mean I fully or even partially support it.)
+
+boycottkochbrothers.com - Boycott Koch Industries
+- http://www.boycottkochbrothers.com/
+- Maybe not the shiniest, or most coherent site (ironic that they ask you to
+  fight the Koch brothers by supporting the ACLU, which the Koch Brothers also
+  support; yay, everybody likes the ACLU!), but boycotting the Koch Brothers is
+  pretty much the prime example of an idea that has wide support but is messy
+  to keep track of in practice. And they seem to be keeping their list of
+  brands up-to-date.
+- also no robots.txt whatsoever
+- Check out their awesome printable buying guide:
+  http://www.boycottkochbrothers.com/popup_kochprocducts.shtml
+
+Hotel Workers Rising - Union Hotel Guide
+- http://www.hotelworkersrising.org/HotelGuide/results.php
+- Many variations of "boycott Hyatt, except unionized Hyatt hotels" exist
+  on the web, but this lists all (presumably) hotel locations and is
+  consistently organized. For an example of similar data in a much messier
+  format, see http://www.unionlabel.org/?zone=/unionactive/view_article.cfm&HomeID=150708&page=Boycott.
+
+Stop Rush - Rush Limbaugh Sponsor List
+- http://stoprush.net/rush_limbaugh_sponsor_list.php
+- actual data is loaded through JavaScript; use Chrome Developer Tools
+  or similar to get the actual data URL
+- Note that the "Statement" column indicates the sponsor has stopped
+  advertising (this is a bit non-obvious).
+
+fishwise.org - Sustainable Fish Buying Guides:
+- http://fishwise.org/
+- Make sure to include Retailers, Suppliers, Producers, Restaurants
+- no Terms of Use/policy against copying
+
+Environmental Defense Fund - Seafood Selector
+- http://seafood.edf.org/
+- Non-commercial redistribution explicitly allowed; see
+  http://www.edf.org/about/this-site/copyright
+
+CODE PINK - Stolen Beauty Campaign
+- http://www.stolenbeauty.org/
+- Summary: boycott AHAVA. So, this doesn't really require a scraper
+- But, they also call for action against retailers that sell AHAVA products.
+
+
+CONSIDER WRITING SCRAPERS FOR:
+
+(Sites whose terms and conditions explicitly prohibit re-publishing their data,
+but who might conceivably share them if approached.)
+
+Monterey Bay Aquarium Seafood Watch
+- http://www.montereybayaquarium.org/cr/cr_seafoodwatch/sfw_recommendations.aspx
+- Terms of Use: http://www.montereybayaquarium.org/sg/sg_copyright.aspx
+  - (no copying under any circumstances)
+- Primary goal of the guide is to protect ocean/fisheries.
+- However, may be covered by fishwise.org/EDF, who have less restrictive terms
+
+Environmental Working Group Consumer Guides:
+- http://www.ewg.org/consumer-guides
+- Reprint permission: http://www.ewg.org/reprintpermission
+  - must ask first, non-commercial use only
+- Guides generate some revenue through Amazon affiliate links, paper guide
+  sales, but EWG probably is funded mostly through donations.
+  - Accepts tax-deductible donations to maintain the guides here:
+    https://donate.ewg.org/t/11908/p/d/environmental_working_group/ewgcontrib/public/index.sjs?donate_page_KEY=2036
+
+
+DO NOT SCRAPE:
+
+(Sites who prohibit access through robots.txt, require a login for access, or
+who use their guides as a significant revenue stream.)
+
+Consumer Reports:
+- http://www.consumerreports.org/cro/index.htm
+- Requires paid subscription and login
+- Primary goal is to protect consumers.
+
+ethical consumer:
+- http://www.ethicalconsumer.org/
+- robots.txt prohibits scraping
+- requires free login
+- sells guides
+- essentially a competing buying guide aggregator
+
+
+OUT OF SCOPE, MAYBE LATER?
+
+(divestment campaigns, companies that only sell
+business-to-business, products not in the U.S., campaigns offensive to most
+progressives)
+
+The Cost of Knowledge - Elsevier Boycott
+- http://thecostofknowledge.com/
+- Goal is to ask academics not to publish, referee, or edit articles in
+Elsevier Journals
