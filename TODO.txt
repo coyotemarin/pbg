@@ -8,19 +8,19 @@ PARTIALLY COMPLETE:
 
 Human Rights Campaign Buying Guide
 - http://www.hrc.org/apps/buyersguide
-- Python: pbg.hrc.buyersguide.*
+- Python: mbg.hrc.buyersguide.*
 - needs rating explanation
 - needs donation URL
 
 Cornucopia Institute Organic Egg Scorecard
 - http://www.cornucopia.org/organic-egg-scorecard/
-- Python: pbg.cornucopia.eggs
+- Python: mbg.cornucopia.eggs
 - need to update output format to match HRC guide
 - needs rating explanation
 - needs donation URL
 
 
-TO WRITE SCRAPERS FOR:
+TO WRITE PARSERS FOR:
 
 (In rough order of priority. Disclaimer: just because something is on this
 list does not mean I fully or even partially support it.)
@@ -63,11 +63,11 @@ Environmental Defense Fund - Seafood Selector
 
 CODE PINK - Stolen Beauty Campaign
 - http://www.stolenbeauty.org/
-- Summary: boycott AHAVA. So, this doesn't really require a scraper
+- Summary: boycott AHAVA. So, this doesn't really require a parser
 - But, they also call for action against retailers that sell AHAVA products.
 
 
-CONSIDER WRITING SCRAPERS FOR:
+CONSIDER WRITING PARSERS FOR:
 
 (Sites whose terms and conditions explicitly prohibit re-publishing their data,
 but who might conceivably share them if approached.)
