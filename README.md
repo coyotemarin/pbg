@@ -51,7 +51,7 @@ email me at <dm@davidmarin.org>.
 More criteria for guides:
 * Choose guides on sites that allow or do not explicitly ban downloading their
 content and redistributing it (look at the Terms of Use, and, if you know how
-to read it, `[robots.txt](http://en.wikipedia.org/wiki/Robots_exclusion_standard)`).
+to read it, [`robots.txt`](http://en.wikipedia.org/wiki/Robots_exclusion_standard)).
   * Few sites explicitly allow redistributing their content ([here is one](http://www.edf.org/about/this-site/copyright)), but that's fine. I'm going off the maxim that [it's easier to ask forgiveness than to get permission](http://en.wikiquote.org/wiki/Grace_Hopper). Most of these organizations are just trying to
 make the world a better place, and if we can help spread the word without
 screwing up their data, probably everyone will be happy.
