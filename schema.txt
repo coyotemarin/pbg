@@ -98,7 +98,7 @@ As far as I can tell, the most widely adopted microdata-as-JSON format is the on
     }
 }
 
-Why is everything in an array? Because every field can have multiple values, since there's nothing to stop people making multiple HTML tags that have the same itemprop value. This is sometimes useful (for example http://schema.org/Organization has a "brand" field which is probably usually going to refer to multiple brands), but usually it just seems unnecessarily verbose. So I'm going to make the brackets optional if a property has a single value. JavaScript is not the greates at telling us whether an object is an array or something else, but it can do it.
+Why is everything in an array? Because every field can have multiple values, since there's nothing to stop people making multiple HTML tags that have the same itemprop value. This is sometimes useful (for example http://schema.org/Organization has a "brand" field which is probably usually going to refer to multiple brands), but usually it just seems unnecessarily verbose. So I'm going to make the brackets optional if a property has a single value. JavaScript is not the greatest at telling us whether an object is an array or something else, but it can do it.
 
 I'm also okay with "type" being a special property. In theory, you CAN do this with HTML microdata, but you shouldn't:
 
@@ -108,21 +108,23 @@ I'm also okay with "type" being a special property. In theory, you CAN do this w
 
 Finally, I left out the type of the address. http://schema.org/Hotel says address can only ever be a PostalAddress, so we can infer it.
 
-Anyways, our Hotel would be contained in some sort of BuyingGuideItem schema, so, something like:
+Anyways, our Hotel would be contained in some sort of BuyingGuideRecommendation schema, so, something like:
 
 {
-    "type": "Thing/BuyingGuideV1Item,
-    "buy": "no",
-    "desc": "On Strike",
+    "type": "Thing/BuyingGuideV1Recommendation,
+    "buy": {
+        "type": "Enumeration/Judgment/Bad",
+	"name": "On Strike",
+    },
     "target": {
         "type": "Hotel",
 	...
     }
 }
 
-(the "Thing/..." type indicates that we extended an existing schema, see http://schema.org/docs/extension.html. And it's "BuyingGuideV1" because I'm *sure* I'm not going to get this right the first time.)
+The "Thing/..." type indicates that we extended an existing schema, see http://schema.org/docs/extension.html. And it's "BuyingGuideV1" because I'm *sure* I'm not going to get this right the first time.
 
-(Also, "buy" should maybe be a http://schema.org/Enumeration. Still figuring those out.)
+We also define a custom Enumeration subclass corresponding to our red/yellow/green color system. Possible values are Enumeration/Judgment/Bad, Enumeration/Judgment/OK, and Enumeration/Judgment/Good
 
 This goes inside some sort of BuyingGuide object, which extends http://schema.org/CreativeWork:
 
@@ -134,10 +136,12 @@ This goes inside some sort of BuyingGuide object, which extends http://schema.or
         "type": "Organization",
 	"name": "UNITE HERE",
     },
-    "item": [
+    "recommendation": [
         {
-	    "buy": "no",
-	    "desc": "On Strike",
+	    "buy":  {
+                "type": "Enumeration/Judgment/Bad",
+	        "name": "On Strike",
+    	    },
 	    "target": {
      	        "type": "Hotel",
 	        ...
@@ -147,8 +151,7 @@ This goes inside some sort of BuyingGuide object, which extends http://schema.or
     ],
 }
 
-And there we go, a buying guide schema. Note that even though we will probably have multiple items, we named the field "item" not "items" (all fields are implicitly plural), and that we left out the type of item, because BuyingGuideV1.item is define to only ever contain BuyingGuideV1Items.
-
+And there we go, a buying guide schema. Note that even though we will probably have multiple recommendations, we named the field "recommendation" not "recommendations" (all fields are implicitly plural), and that we left out the type of recommendation, because BuyingGuideV1.recommendation is define to only ever contain BuyingGuideV1Recommendations.
 
 FUTURE WORK: TABULAR DATA
 
