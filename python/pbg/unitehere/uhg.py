@@ -13,8 +13,8 @@
 # limitations under the License.
 """usage:
 
-curl http://www.hotelworkersrising.org/HotelGuide/results.php > hotels.html
-python -m pbg.unitehere.uhg hotels.html
+curl http://www.hotelworkersrising.org/HotelGuide/results.php > uhg.html
+python -m pbg.unitehere.uhg uhg.html
 """
 import json
 import re
@@ -28,7 +28,7 @@ from pyassert import assert_that
 
 CATEGORY_TO_JUDGMENT = {
     'Please Patronize': 'Good',
-    'Risk of Dispute': 'OK',
+    'Risk of Dispute': 'Warning',
     'On Strike': 'Bad',
     'Boycott These Properties': 'Bad',
 }
