@@ -104,6 +104,8 @@ def parse_p(p, category):
     assert_that(len(lines)).ge(2).le(4)
 
     name = lines[0]
+    if name.endswith(' - ON STRIKE'):
+        name = name[:-12]
 
     if len(lines) <= 2:
         address = parse_addr(lines[1:2])
