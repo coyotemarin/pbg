@@ -30,10 +30,18 @@ CATEGORY_TO_JUDGMENT = {
     'Please Patronize': 'Good',
     'Risk of Dispute': 'OK',
     'On Strike': 'Bad',
-    'Boycott': 'Bad',
+    'Boycott These Properties': 'Bad',
 }
 
-ADDRESS_RE = re.compile('^(.*), ([A-Z][A-Z]) (.*)$')
+CATEGORY_TO_NAME = {
+    'Boycott These Properties': 'Boycott',
+}
+
+CANADA_REGIONS = set(['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON',
+                      'PE', 'QC', 'SK', 'NT', 'NU', 'YT'])
+
+ADDRESS_RE = re.compile(
+    '^(?P<locality>.*), (?P<region>[A-Z][A-Z])( (?P<postal>.*))?$')
 
 
 def main():
@@ -90,45 +98,55 @@ def main():
 
 def parse_p(p, category):
     judgment = CATEGORY_TO_JUDGMENT[category]
+    judgment_name = CATEGORY_TO_NAME.get(category) or category
 
     lines = list(p.stripped_strings)
-    assert_that(len(lines)).equals(4)
+    assert_that(len(lines)).ge(2).le(4)
 
     name = lines[0]
-    street = lines[1]
-    locality, region, country, postal = parse_rest_of_addr(lines[2])
-    assert_that(lines[3]).starts_with('Phone: ')
-    phone = lines[3][7:]
+
+    if len(lines) <= 2:
+        address = parse_addr(lines[1:2])
+    else:
+        address = parse_addr(lines[1:3])
+
+    if len(lines) >= 4:
+        assert_that(lines[3]).starts_with('Phone: ')
+        address['telephone'] = lines[3][7:]
 
     return {
         'buy': {
             'type': 'Enumeration/Judgment/' + judgment,
-            'name': category,
+            'name': judgment_name,
         },
         'target': {
             'type': 'Hotel',
             'name': name,
-            'address': {
-                'streetAddress': street,
-                'addressLocality': locality,
-                'addressRegion': region,
-                'addressCountry': country,
-                'postalCode': postal,
-                'telephone': phone,
-            },
+            'address': address,
         }
     }
 
 
-def parse_rest_of_addr(line):
-    m = ADDRESS_RE.match(line)
-    assert_that(m).is_true()
-    locality = m.group(0)
-    region = m.group(1)
-    postal = m.group(2)
-    country = 'US' if len(postal) == 5 else 'CA'
+def parse_addr(lines):
+    assert_that(len(lines)).ge(1).le(2)
 
-    return locality, region, country, postal
+    address = {}
+
+    if len(lines) >= 2:
+        address['streetAddress'] = lines[0]
+
+    m = ADDRESS_RE.match(lines[-1])
+    assert_that(m).is_true()
+
+    address['locality'] = m.group('locality')
+    address['region'] = m.group('region')
+    address['addressCountry'] = (
+        'CA' if m.group('region') in CANADA_REGIONS else 'US')
+
+    if m.group('postal'):
+        address['postalCode'] = m.group('postal')
+
+    return address
 
 
 if __name__ == '__main__':
