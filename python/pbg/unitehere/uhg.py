@@ -28,7 +28,7 @@ from pyassert import assert_that
 
 CATEGORY_TO_JUDGMENT = {
     'Please Patronize': 'Good',
-    'Risk of Dispute': 'Warning',
+    'Risk of Dispute': 'Mixed',
     'On Strike': 'Bad',
     'Boycott These Properties': 'Bad',
 }
@@ -48,7 +48,14 @@ def main():
     _, args = OptionParser().parse_args()
     assert_that(len(args)).equals(1)
     with open(args[0]) as f:
-        soup = BeautifulSoup(f.read())
+        html = f.read()
+
+    # for some reason, the long ASP comment screws up BeautifulSoup,
+    # so skip it
+    start_index = html.find('<!DOCTYPE')
+    assert_that(start_index).ge(0)
+
+    soup = BeautifulSoup(html[start_index:], 'html5lib')
 
     h1s = soup.select('h1')
     assert_that(len(h1s)).equals(1)
@@ -117,7 +124,7 @@ def parse_p(p, category):
         address['telephone'] = lines[3][7:]
 
     return {
-        'buy': {
+        'judgment': {
             'type': 'Enumeration/Judgment/' + judgment,
             'name': judgment_name,
         },
