@@ -65,10 +65,14 @@ def main():
     assert_that(len(copyright_ps)).equals(1)
     copyright_strings = list(copyright_ps[0].stripped_strings)
     assert_that(len(copyright_strings)).equals(1)
-    the_word_copyright, _, copyrightYear, author = (
+    the_word_copyright, _, copyrightYear, author_name = (
         copyright_strings[0].split(None, 3))
     assert_that(the_word_copyright).equals('Copyright')
     copyrightYear = int(copyrightYear)
+    author = {
+        'type': 'Organization/LaborUnion',
+        'name': author_name,
+    }
 
     tables = soup.select('table div table')
     assert_that(len(tables)).equals(1)
