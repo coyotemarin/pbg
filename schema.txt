@@ -98,7 +98,7 @@ As far as I can tell, the most widely adopted microdata-as-JSON format is the on
     }
 }
 
-Why is everything in an array? Because every field can have multiple values, since there's nothing to stop people making multiple HTML tags that have the same itemprop value. This is sometimes useful (for example http://schema.org/Organization has a "brand" field which is probably usually going to refer to multiple brands), but usually it just seems unnecessarily verbose. So I'm going to make the brackets optional if a property has a single value. JavaScript is not the greatest at telling us whether an object is an array or something else, but it can do it.
+Why is everything in an array? Because every field can have multiple values, since there's nothing to stop people making multiple HTML tags that have the same itemprop value. This is sometimes useful (for example http://schema.org/Organization has a "brand" field which is probably usually going to refer to multiple brands), but usually it just seems unnecessarily verbose. So I'm going to make the brackets optional if a property has a single value. JavaScript has isArray() now; it's cool.
 
 I'm also okay with "type" being a special property. In theory, you CAN do this with HTML microdata, but you shouldn't:
 
