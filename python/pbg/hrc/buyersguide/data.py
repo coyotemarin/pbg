@@ -41,12 +41,16 @@ from urlparse import urlparse
 from urlparse import parse_qsl
 
 
-RATING_COLOR_TO_SHOULD_BUY = {
-    'green': 'yes',
-    'yellow': 'maybe',
-    'red': 'no',
+RATING_COLOR_TO_JUDGMENT_TYPE = {
+    'green': 'Good',
+    'yellow': 'Mixed',
+    'red': 'Bad',
 }
-CAMPAIGN_NAME = "Human Rights Campaign Buyer's Guide"
+CAMPAIGN_AUTHOR =  {
+    'type': 'NGO',
+    'name': 'Human Rights Campaign',
+}
+CAMPAIGN_NAME = "Buyer's Guide"
 WHITESPACE_RE = re.compile('\s+')
 
 
@@ -55,7 +59,7 @@ def main():
     assert_that(args).is_not_empty()
 
     entries = []
-    about = None
+    description = None
 
     for path in args:
         with open(path) as f:
@@ -68,19 +72,20 @@ def main():
         # main page
         if len(divs) == 1:
             assert_that(content.h1.string.lower()).equals('about the guide')
-            about = parse_about(content)
+            description = parse_about(content)
         # category page
         else:
             assert_that(len(divs)).equals(2)
             entries.extend(parse_category_page_divs(divs))
 
-    assert_that(about).is_not_none()
+    assert_that(description).is_not_none()
 
     entries = merge_entries_by_company_name(entries)
 
     result = {
+        'author': CAMPAIGN_AUTHOR,
         'name': CAMPAIGN_NAME,
-        'about': about,
+        'description': description,
         'entries': entries,
     }
 
@@ -105,17 +110,17 @@ def fix_whitespace(s):
 def parse_category_page_divs(divs):
     assert_that(divs[0].h2.string.lower()).equals('search')
 
-    category_desc = divs[1].h2.string
+    category_name = divs[1].h2.string
 
     trs = divs[1].select('table tbody tr')
 
     assert_that(trs[0].td.p.strong.string).equals('Business')
 
     for tr in trs[1:]:
-        yield parse_category_page_tr(tr, category_desc)
+        yield parse_category_page_tr(tr, category_name)
 
 
-def parse_category_page_tr(tr, category_desc):
+def parse_category_page_tr(tr, category_name):
     tds = tr.select('td')
     assert_that(len(tds)).equals(3)
 
@@ -136,10 +141,10 @@ def parse_category_page_tr(tr, category_desc):
 
     company_name = company_p.a.strong.string
 
-    responded = not(company_p.i)
+    responded_to_survey = not(company_p.i)
 
-    partner = bool(company_p.img)
-    if partner:
+    is_partner = bool(company_p.img)
+    if is_partner:
         assert_is_partner_img(company_p.img)
 
     if len(ps) >= 2:
@@ -159,31 +164,50 @@ def parse_category_page_tr(tr, category_desc):
     rank = int(rank_strings[0])
 
     category = {
-        'desc': category_desc,
-        'x_hrc_catid': hrc_catid,
+        'name': category_name,
+        'hrc_catid': hrc_catid,
     }
 
-    brands = [{'name': bn, 'categories': [category]} for bn in brand_names]
+    brands = []
 
-    return {
+    for brand_name in brand_names:
+        brands.append({
+            'type': 'Brand',
+            'name': brand_name,
+            'extra': {
+                'category': category,
+                'is_hrc_partner': is_partner or brand_name in partner_brands,
+            }
+        })
+
+    judgment = RATING_COLOR_TO_JUDGMENT_TYPE[color]
+
+    rec = {
         'target': {
-            'type': 'company',
+            'type': 'Corporation',
             'name': company_name,
-            'brands': brands,
-            'categories': [category],
-            'x_hrc_orgid': hrc_orgid,
+            'brand': brands,
+            'extra': {
+                'category': [category],
+                'hrc_orgid': hrc_orgid,
+            },
         },
-        'ratings': {
-            'color': color,
-            'rank': rank,
-            'responded': responded,
-            'partner': partner,
-            'partner_brands': partner_brands,
-        },
-        'actions': {
-            'buy': RATING_COLOR_TO_SHOULD_BUY[color],
-        },
+        'judgment': {
+            'type': 'Enumeration/Judgment/' + judgment,
+            'name': '%d out of 100' % rank,
+            'extra': {
+                'rank': rank,
+                'is_hrc_partner': is_partner,
+                'hrc_partner_brand': partner_brands,
+                'responded_to_survey': responded_to_survey,
+            },
+        }
     }
+
+    if not responded_to_survey:
+        rec['judgment']['caveat'] = 'did not respond to survey'
+
+    return rec
 
 
 def parse_brand_p(p):
@@ -214,7 +238,7 @@ def assert_is_partner_img(img):
 
 
 def parse_img_src_rating_color(img_src):
-    for color in RATING_COLOR_TO_SHOULD_BUY:
+    for color in RATING_COLOR_TO_JUDGMENT_TYPE:
         if color in img_src:
             return color
 
@@ -229,14 +253,15 @@ def merge_entries_by_company_name(entries):
 
         if cn in cn_to_entry:
             old_entry = cn_to_entry[cn]
-            old_entry['ratings']['partner_brands'].extend(
-                entry['ratings']['partner_brands'])
-            del entry['ratings']['partner_brands']
-            safe_update(old_entry['ratings'], entry['ratings'])
-            old_entry['target']['brands'].extend(
-                entry['target']['brands'])
-            old_entry['target']['categories'].extend(
-                entry['target']['categories'])
+            old_entry['judgment']['extra']['hrc_partner_brand'].extend(
+                entry['judgment']['extra']['hrc_partner_brand'])
+            entry['judgment']['extra']['hrc_partner_brand'] = (
+                old_entry['judgment']['extra']['hrc_partner_brand'])
+            safe_update(old_entry['judgment'], entry['judgment'])
+            old_entry['target']['brand'].extend(
+                entry['target']['brand'])
+            old_entry['target']['extra']['category'].extend(
+                entry['target']['extra']['category'])
         else:
             cn_to_entry[cn] = entry
 
@@ -244,9 +269,9 @@ def merge_entries_by_company_name(entries):
                            key=lambda i: i['target']['name'])
 
     for entry in results:
-        entry['ratings']['partner_brands'].sort()
-        entry['target']['brands'].sort(key=lambda b: b['name'])
-        entry['target']['categories'].sort(key=lambda c: c['desc'])
+        entry['judgment']['extra']['hrc_partner_brand'].sort()
+        entry['target']['brand'].sort(key=lambda b: b['name'])
+        entry['target']['extra']['category'].sort(key=lambda c: c['name'])
 
     return results
 

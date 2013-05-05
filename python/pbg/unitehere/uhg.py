@@ -13,8 +13,8 @@
 # limitations under the License.
 """usage:
 
-curl http://www.hotelworkersrising.org/HotelGuide/results.php > hotels.html
-python -m pbg.unitehere.uhg hotels.html
+curl http://www.hotelworkersrising.org/HotelGuide/results.php > uhg.html
+python -m pbg.unitehere.uhg uhg.html
 """
 import json
 import re
@@ -65,10 +65,14 @@ def main():
     assert_that(len(copyright_ps)).equals(1)
     copyright_strings = list(copyright_ps[0].stripped_strings)
     assert_that(len(copyright_strings)).equals(1)
-    the_word_copyright, _, copyrightYear, author = (
+    the_word_copyright, _, copyrightYear, author_name = (
         copyright_strings[0].split(None, 3))
     assert_that(the_word_copyright).equals('Copyright')
     copyrightYear = int(copyrightYear)
+    author = {
+        'type': 'Organization/LaborUnion',
+        'name': author_name,
+    }
 
     tables = soup.select('table div table')
     assert_that(len(tables)).equals(1)
@@ -111,6 +115,8 @@ def parse_p(p, category):
     assert_that(len(lines)).ge(2).le(4)
 
     name = lines[0]
+    if name.endswith(' - ON STRIKE'):
+        name = name[:-12]
 
     if len(lines) <= 2:
         address = parse_addr(lines[1:2])

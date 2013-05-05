@@ -124,7 +124,7 @@ Anyways, our Hotel would be contained in some sort of BuyingRecommendation schem
 
 The "Thing/..." type indicates that we extended an existing schema, see http://schema.org/docs/extension.html. And it's "...V1" because I'm *sure* I'm not going to get this right the first time.
 
-We also define a custom Enumeration subclass corresponding to our red/yellow/green color system. Possible values are Enumeration/Judgment/Bad, Enumeration/Judgment/OK, and Enumeration/Judgment/Good
+We also define a custom Enumeration subclass corresponding to our red/yellow/green color system. Possible values are Enumeration/Judgment/Bad, Enumeration/Judgment/Warning, and Enumeration/Judgment/Good
 
 This goes inside some sort of BuyingGuide object, which extends http://schema.org/CreativeWork:
 

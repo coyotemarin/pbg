@@ -1,7 +1,11 @@
 COMPLETE:
 
-Nothing can be here yet, as there is not yet a defined data format or
-a standard for completeness.
+Hotel Workers Rising - Union Hotel Guide
+- http://www.hotelworkersrising.org/HotelGuide/results.php
+- Many variations of "boycott Hyatt, except unionized Hyatt hotels" exist
+  on the web, but this lists all (presumably) hotel locations and is
+  consistently organized. For an example of similar data in a much messier
+  format, see http://www.unionlabel.org/?zone=/unionactive/view_article.cfm&HomeID=150708&page=Boycott.
 
 
 PARTIALLY COMPLETE:
@@ -22,7 +26,7 @@ Cornucopia Institute Organic Egg Scorecard
 
 TO WRITE PARSERS FOR:
 
-(In roughly order of priority, but work on whatever interests you. Disclaimer: 
+(In roughly order of priority, but work on whatever interests you. Disclaimer:
 just because something is on this list does not mean I fully or even partially
 support it.)
 
@@ -38,13 +42,6 @@ boycottkochbrothers.com - Boycott Koch Industries
 - Check out their awesome printable buying guide:
   http://www.boycottkochbrothers.com/popup_kochprocducts.shtml
 
-Hotel Workers Rising - Union Hotel Guide
-- http://www.hotelworkersrising.org/HotelGuide/results.php
-- Many variations of "boycott Hyatt, except unionized Hyatt hotels" exist
-  on the web, but this lists all (presumably) hotel locations and is
-  consistently organized. For an example of similar data in a much messier
-  format, see http://www.unionlabel.org/?zone=/unionactive/view_article.cfm&HomeID=150708&page=Boycott.
-
 Stop Rush - Rush Limbaugh Sponsor List
 - http://stoprush.net/rush_limbaugh_sponsor_list.php
 - actual data is loaded through JavaScript; use Chrome Developer Tools
@@ -57,15 +54,41 @@ fishwise.org - Sustainable Fish Buying Guides:
 - Make sure to include Retailers, Suppliers, Producers, Restaurants
 - no Terms of Use/policy against copying
 
-Environmental Defense Fund - Seafood Selector
-- http://seafood.edf.org/
-- Non-commercial redistribution explicitly allowed; see
-  http://www.edf.org/about/this-site/copyright
+Labor 411 (Union Made guide):
+- http://www.labor411.org/consumer-products
+- http://www.labor411.org/city-directories/san-francisco
+- http://www.labor411.org/city-directories/los-angeles
+- need to load a lot of pages to do this right. For example, only
+  "select stores" of CVS are union:
+  (http://www.labor411.org/index.php?option=com_mtree&task=viewlink&link_id=8772&Itemid=215)
+- Pretty fuzzy idea of what is a brand and what is a company:
+  http://www.labor411.org/index.php?option=com_mtree&task=viewlink&link_id=8766&Itemid=215
 
 CODE PINK - Stolen Beauty Campaign
 - http://www.stolenbeauty.org/
 - Summary: boycott AHAVA. So, this doesn't really require a parser
 - But, they also call for action against retailers that sell AHAVA products.
+
+Environmental Defense Fund - Seafood Selector
+- http://seafood.edf.org/
+- Non-commercial redistribution explicitly allowed; see
+  http://www.edf.org/about/this-site/copyright
+- probably about the same data as fishwise.org
+
+MIGHT BE STALE:
+
+(Contact the author to find out if it's still up-to-date)
+
+EthicalShopping.com (Consumer Ethics Inc.)
+- pretty straightforward, wide variety of product categories
+- http://www.ethicalshopping.com/support.html
+- http://www.ethicalshopping.com/boycott.html
+- site is (c) 2013, but last article is from 2008.
+
+Food Empowerment Project
+- http://www.foodispower.org/chocolatelist.php
+- Huge, but only includes VEGAN chocolates. Sigh.
+- says (c) 2010; is this out of date?
 
 
 CONSIDER WRITING PARSERS FOR:
