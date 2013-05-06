@@ -14,19 +14,43 @@
 """usage:
 
 curl http://www.cornucopia.org/organic-egg-scorecard/ > eggs.html
-python -m pbg.cornucopia.eggs < eggs.html
+python -m pbg.cornucopia.eggs eggs.html
 """
 import json
 import sys
+from optparse import OptionParser
+
 
 from bs4 import BeautifulSoup
+from pyassert import assert_that
+
+
+# TODO: parse these out of the document
+HARD_CODED_FIELDS = {
+    'type': 'CreativeWork/BuyingGuideV1',
+    'name': 'Organic Egg Scorecard',
+    'author': {
+        'type': 'Organization/NGO',
+        'name': 'The Cornucopia Institute',
+    },
+}
+
+STATE_NAME_TO_ABBR = {
+    'Michigan': 'MI',
+    'Nebraska': 'NE',
+    'Utah': 'UT',
+}
 
 
 def main():
-    html = sys.stdin.read()
+    _, args = OptionParser().parse_args()
+    assert_that(len(args)).equals(1)
+    with open(args[0]) as f:
+        html = f.read()
+
     # use html5lib, as the default parser excludes almost all of the body
     soup = BeautifulSoup(html, 'html5lib')
-    ratings = []
+    recs = []
 
     table = soup.find('table', {'id': 'organic-egg-scorecard'})
 
@@ -36,34 +60,74 @@ def main():
     for tr in trs:
         tds = tr.find_all('td')
         if len(tds) == 6:
-            rating = {}
+            rec = {}
             if not tds[0].a:
                 continue
 
-            rating['brand'] = tds[0].a.string.strip()
+            brand_name = tds[0].a.string.strip()
             company_name = tds[0].i.string
-            if company_name.startswith('by '):
-                company_name = company_name[3:].strip()
-            else:
-                raise Exception(company_name)
-            rating['company'] = {'name': company_name}
+            assert_that(company_name).starts_with('by ')
+            company_name = company_name[3:].strip()
 
-            rating['rating'] = int(tds[1].string)
+            rec['target'] = {
+                'type': 'Corporation',
+                'name': company_name,
+                'brand': {
+                    'type': 'Brand',
+                    'name': brand_name,
+                },
+            }
+
+            rating = int(tds[1].string)
+            if rating >= 3:
+                judgment_type = 'Good'
+            elif rating == 2:
+                judgment_type = 'Mixed'
+            else:
+                judgment_type = 'Poor'
+
+            rec['judgment'] = {
+                'type': 'Enumeration/Judgment/' + judgment_type,
+                # TODO: parse rating descriptions for each section
+                'name': '%d out of 5' % rating,
+                'extra': {},
+            }
+
             location = tds[2].string
             if location and location.strip():
-                rating['company']['location'] = location
+                parts = location.strip().split(', ')
+                assert_that(len(parts)).ge(1).le(2)
+                place = {
+                    'type': 'PostalAddress',
+                    'addressCountry': 'US',
+                }
+                state = parts[-1]
+                if len(state) != 2:
+                    assert_that(STATE_NAME_TO_ABBR).contains(state)
+                    state = STATE_NAME_TO_ABBR[state]
+                place['region'] = state.upper()
+                if len(parts) == 2:
+                    place['locality'] = parts[0]
+
+                rec['target']['location'] = location
+
 
             market_area = tds[3].string
             if market_area and market_area.strip():
-                rating['markets'] = [{'desc': market_area,
-                                      'country': 'US'}]
-            rating['total_score'] = int(tds[4].string)
+                # TODO: parse this and add it to the "spatial" field
+                rec['target'].setdefault('extra', {})
+                rec['target']['extra']['market_area'] = market_area
 
-            ratings.append(rating)
+            rec['judgment']['extra']['total_score'] = int(tds[4].string)
 
-    assert len(ratings) > 20
+            recs.append(rec)
 
-    json.dump({'ratings': ratings}, sys.stdout, sort_keys=True, indent=4)
+    assert len(recs) > 20
+
+    guide = HARD_CODED_FIELDS.copy()
+    guide['recommendation'] = recs
+
+    json.dump(guide, sys.stdout, sort_keys=True, indent=4)
 
 
 if __name__ == '__main__':
