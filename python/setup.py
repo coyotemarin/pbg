@@ -6,6 +6,7 @@ try:
         'install_requires': [
             'BeautifulSoup4',
             'html5lib',
+            'microdata',
             'pyassert',
         ],
         'provides': ['pbg'],

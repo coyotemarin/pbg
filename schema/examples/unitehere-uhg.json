@@ -1,34 +1,28 @@
 {
+  "type": [
+    "BuyersGuide"
+  ],
   "properties": {
-    "author": [
-      {
-        "properties": {
-          "name": [
-            "UNITE HERE"
-          ]
-        },
-        "type": [
-          "LaborUnion"
-        ]
-      }
-    ],
-    "copyrightHolder": [
-      {
-        "properties": {
-          "name": [
-            "UNITE HERE"
-          ]
-        },
-        "type": [
-          "LaborUnion"
-        ]
-      }
-    ],
     "copyrightYear": [
       2013
     ],
+    "copyrightHolder": [
+      {
+        "type": [
+          "LaborUnion"
+        ],
+        "properties": {
+          "name": [
+            "UNITE HERE"
+          ]
+        }
+      }
+    ],
     "judgment": [
       {
+        "type": [
+          "Judgment"
+        ],
         "properties": {
           "judgment": [
             "Good"
@@ -38,51 +32,60 @@
           ],
           "target": [
             {
+              "type": [
+                "Hotel"
+              ],
               "properties": {
+                "name": [
+                  "5 Calgary Downtown Suites"
+                ],
                 "address": [
                   {
+                    "type": [
+                      "PostalAddress"
+                    ],
                     "properties": {
-                      "addressCountry": [
-                        "CA"
-                      ],
                       "locality": [
                         "Calgary"
-                      ],
-                      "postalCode": [
-                        "T2P 0M7"
                       ],
                       "region": [
                         "AB"
                       ],
+                      "telephone": [
+                        "(403) 263-0520"
+                      ],
+                      "addressCountry": [
+                        "CA"
+                      ],
                       "streetAddress": [
                         "618 -5Th Ave. SW"
                       ],
-                      "telephone": "(403) 263-0520"
-                    },
-                    "type": [
-                      "PostalAddress"
-                    ]
+                      "postalCode": [
+                        "T2P 0M7"
+                      ]
+                    }
                   }
-                ],
-                "name": [
-                  "5 Calgary Downtown Suites"
                 ]
-              },
-              "type": [
-                "Hotel"
-              ]
+              }
             }
           ]
-        },
-        "type": [
-          "Judgment"
-        ]
+        }
       },
+    ],
     "name": [
       "Union Hotel Guide"
+    ],
+    "author": [
+      {
+        "type": [
+          "LaborUnion"
+        ],
+        "properties": {
+          "name": [
+            "UNITE HERE"
+          ]
+        }
+      }
     ]
-  },
-  "type": [
-    "BuyersGuide"
-  ]
+  }
 }

@@ -16,24 +16,24 @@
 curl http://www.hotelworkersrising.org/HotelGuide/results.php > uhg.html
 python -m pbg.unitehere.uhg uhg.html
 """
-import json
 import re
 import sys
 from optparse import OptionParser
 
 from bs4 import BeautifulSoup
 from bs4 import Tag
+from microdata import Item
 from pyassert import assert_that
 
 
-CATEGORY_TO_JUDGMENT = {
+CATEGORY_TO_JUDGMENT_TYPE = {
     'Please Patronize': 'Good',
     'Risk of Dispute': 'Mixed',
     'On Strike': 'Bad',
     'Boycott These Properties': 'Bad',
 }
 
-CATEGORY_TO_NAME = {
+CATEGORY_TO_JUDGMENT_NAME = {
     'Boycott These Properties': 'Boycott',
 }
 
@@ -69,12 +69,8 @@ def main():
         copyright_strings[0].split(None, 3))
     assert_that(the_word_copyright).equals('Copyright')
     copyrightYear = int(copyrightYear)
-    author = {
-        'type': ['LaborUnion'],
-        'properties': {
-            'name': [author_name],
-        },
-    }
+    author = Item('LaborUnion')
+    author.set('name', author_name)
 
     tables = soup.select('table div table')
     assert_that(len(tables)).equals(1)
@@ -97,23 +93,19 @@ def main():
                 elif child.name == 'p':
                     judgments.append(parse_p(child, category))
 
-    result = {
-        'type': ['BuyersGuide'],
-        'properties': {
-            'name': [name],
-            'author': [author],
-            'copyrightYear': [copyrightYear],
-            'copyrightHolder': [author],
-            'judgment': judgments,
-        },
-    }
+    guide = Item('BuyersGuide')
+    guide.set('name', name)
+    guide.set('author', author)
+    guide.set('copyrightYear', copyrightYear)
+    guide.set('copyrightHolder', author)
+    guide.props['judgment'] = judgments
 
-    json.dump(result, sys.stdout, sort_keys=True, indent=2)
+    sys.stdout.write(guide.json())
 
 
 def parse_p(p, category):
-    judgment = CATEGORY_TO_JUDGMENT[category]
-    judgment_name = CATEGORY_TO_NAME.get(category) or category
+    judgment_type = CATEGORY_TO_JUDGMENT_TYPE[category]
+    judgment_name = CATEGORY_TO_JUDGMENT_NAME.get(category) or category
 
     lines = list(p.stripped_strings)
     assert_that(len(lines)).ge(2).le(4)
@@ -129,47 +121,40 @@ def parse_p(p, category):
 
     if len(lines) >= 4:
         assert_that(lines[3]).starts_with('Phone: ')
-        address['properties']['telephone'] = lines[3][7:]
+        address.set('telephone', lines[3][7:])
 
-    return {
-        'type': ['Judgment'],
-        'properties': {
-            'judgment': [judgment],
-            'name': [judgment_name],
-            'target': [{
-                'type': ['Hotel'],
-                'properties': {
-                    'name': [name],
-                    'address': [address],
-                },
-            }],
-        },
-    }
+    hotel = Item('Hotel')
+    hotel.set('name', name)
+    hotel.set('address', address)
+
+    judgment = Item('Judgment')
+    judgment.set('judgment', judgment_type)
+    judgment.set('name', judgment_name)
+    judgment.set('target', hotel)
+
+    return judgment
 
 
 def parse_addr(lines):
     assert_that(len(lines)).ge(1).le(2)
 
-    addr = {}
+    addr = Item('PostalAddress')
 
     if len(lines) >= 2:
-        addr['streetAddress'] = lines[0]
+        addr.set('streetAddress', lines[0])
 
     m = ADDRESS_RE.match(lines[-1])
     assert_that(m).is_true()
 
-    addr['locality'] = m.group('locality')
-    addr['region'] = m.group('region')
-    addr['addressCountry'] = (
+    addr.set('locality', m.group('locality'))
+    addr.set('region', m.group('region'))
+    addr.set('addressCountry',
         'CA' if m.group('region') in CANADA_REGIONS else 'US')
 
     if m.group('postal'):
-        addr['postalCode'] = m.group('postal')
+        addr.set('postalCode', m.group('postal'))
 
-    return {
-        'type': ['PostalAddress'],
-        'properties': dict((k, [v]) for k, v in addr.iteritems()),
-    }
+    return addr
 
 
 if __name__ == '__main__':
