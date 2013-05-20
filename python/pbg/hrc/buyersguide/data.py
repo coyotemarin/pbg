@@ -28,7 +28,6 @@ python -m pbg.hrc.buyersguide.data hrc.html hrc-pages/*.html > hrc.json
 # and include info on what the ratings mean
 from __future__ import with_statement
 
-import json
 import re
 import sys
 from optparse import OptionParser
@@ -40,16 +39,16 @@ from pyassert import assert_that
 from urlparse import urlparse
 from urlparse import parse_qsl
 
+from pbg.common.microdata import Item
+
 
 RATING_COLOR_TO_JUDGMENT_TYPE = {
     'green': 'Good',
     'yellow': 'Mixed',
     'red': 'Bad',
 }
-CAMPAIGN_AUTHOR =  {
-    'type': 'NGO',
-    'name': 'Human Rights Campaign',
-}
+# TODO: parse this from the document
+CAMPAIGN_AUTHOR = 'Human Rights Campaign'
 CAMPAIGN_NAME = "Buyer's Guide"
 WHITESPACE_RE = re.compile('\s+')
 
@@ -58,7 +57,7 @@ def main():
     _, args = OptionParser().parse_args()
     assert_that(args).is_not_empty()
 
-    entries = []
+    judgments = []
     description = None
 
     for path in args:
@@ -76,20 +75,22 @@ def main():
         # category page
         else:
             assert_that(len(divs)).equals(2)
-            entries.extend(parse_category_page_divs(divs))
+            judgments.extend(parse_category_page_divs(divs))
 
     assert_that(description).is_not_none()
 
-    entries = merge_entries_by_company_name(entries)
+    judgments = merge_judgments_by_company_name(judgments)
 
-    result = {
-        'author': CAMPAIGN_AUTHOR,
-        'name': CAMPAIGN_NAME,
-        'description': description,
-        'entries': entries,
-    }
+    author = Item('NGO')
+    author.set('name', CAMPAIGN_AUTHOR)
 
-    json.dump(result, sys.stdout, sort_keys=True, indent=4)
+    guide = Item('BuyersGuide')
+    guide.set('author', author)
+    guide.set('name', CAMPAIGN_NAME)
+    guide.set('description', description)
+    guide.props['judgment'] = judgments
+
+    sys.stdout.write(guide.json())
 
 
 def parse_about(content):
@@ -140,8 +141,7 @@ def parse_category_page_tr(tr, category_name):
     hrc_orgid = href_params['orgid']
 
     company_name = company_p.a.strong.string
-
-    responded_to_survey = not(company_p.i)
+    responded_to_survey = not(company_p.em)
 
     is_partner = bool(company_p.img)
     if is_partner:
@@ -163,51 +163,40 @@ def parse_category_page_tr(tr, category_name):
     assert_that(len(rank_strings)).equals(1)
     rank = int(rank_strings[0])
 
-    category = {
-        'name': category_name,
-        'hrc_catid': hrc_catid,
-    }
-
     brands = []
 
     for brand_name in brand_names:
-        brands.append({
-            'type': 'Brand',
-            'name': brand_name,
-            'extra': {
-                'category': category,
-                'is_hrc_partner': is_partner or brand_name in partner_brands,
-            }
-        })
+        brand = Item('Brand')
+        brand.set('name', brand_name)
+        brand.set('category', category_name)
+        brand.extra['hrcCategoryID'] = hrc_catid
+        brands.append(brand)
 
-    judgment = RATING_COLOR_TO_JUDGMENT_TYPE[color]
+    target = Item('Corporation')
+    target.set('name', company_name)
+    target.props['brand'] = brands
+    target.set('category', category_name)
+    target.extra['hrcOrgID'] = hrc_orgid
+    target.extra['hrcCategoryID'] = [hrc_catid]
 
-    rec = {
-        'target': {
-            'type': 'Corporation',
-            'name': company_name,
-            'brand': brands,
-            'extra': {
-                'category': [category],
-                'hrc_orgid': hrc_orgid,
-            },
-        },
-        'judgment': {
-            'type': 'Enumeration/Judgment/' + judgment,
-            'name': '%d out of 100' % rank,
-            'extra': {
-                'rank': rank,
-                'is_hrc_partner': is_partner,
-                'hrc_partner_brand': partner_brands,
-                'responded_to_survey': responded_to_survey,
-            },
-        }
-    }
+    judgment = Item('Judgment')
+    judgment.set('target', target)
+    judgment.set('judgment', RATING_COLOR_TO_JUDGMENT_TYPE[color])
+    judgment.set('name', '%d out of 100' % rank)
 
     if not responded_to_survey:
-        rec['judgment']['caveat'] = 'did not respond to survey'
+        judgment.set('caveat', 'Did not respond to survey')
+    elif is_partner or partner_brands:
+        # pretty sure you have to respond to the survey to be a partner :)
+        judgment.set('caveat', 'HRC National Corporate Partner')
 
-    return rec
+    judgment.extra['rank'] = rank
+    judgment.extra['isHrcPartner'] = is_partner
+    if partner_brands:
+        judgment.extra['hrcPartnerBrand'] = partner_brands
+    judgment.extra['respondedToSurvey'] = responded_to_survey
+
+    return judgment
 
 
 def parse_brand_p(p):
@@ -245,40 +234,46 @@ def parse_img_src_rating_color(img_src):
     raise AssertionError('unknown color for image: ' + img_src)
 
 
-def merge_entries_by_company_name(entries):
-    cn_to_entry = {}
+def merge_judgments_by_company_name(judgments):
+    cn_to_judgment = {}
 
-    for entry in entries:
-        cn = entry['target']['name']
+    for j in judgments:
+        cn = j.get('target').get('name')
 
-        if cn in cn_to_entry:
-            old_entry = cn_to_entry[cn]
-            old_entry['judgment']['extra']['hrc_partner_brand'].extend(
-                entry['judgment']['extra']['hrc_partner_brand'])
-            entry['judgment']['extra']['hrc_partner_brand'] = (
-                old_entry['judgment']['extra']['hrc_partner_brand'])
-            safe_update(old_entry['judgment'], entry['judgment'])
-            old_entry['target']['brand'].extend(
-                entry['target']['brand'])
-            old_entry['target']['extra']['category'].extend(
-                entry['target']['extra']['category'])
+        if cn in cn_to_judgment:
+            old_j = cn_to_judgment[cn]
+
+            safe_update(old_j.extra, j.extra, merge=['hrcPartnerBrand'])
+
+            safe_update(old_j.get('target').extra, j.get('target').extra,
+                        merge=['hrcCategoryID'])
+            safe_update(old_j.get('target').props, j.get('target').props,
+                        merge=['brand', 'category'])
+
+            safe_update(old_j.props, j.props, skip=['target'])
         else:
-            cn_to_entry[cn] = entry
+            cn_to_judgment[cn] = j
 
-    results = sorted(cn_to_entry.itervalues(),
-                           key=lambda i: i['target']['name'])
+    results = [j for (cn, j) in sorted(cn_to_judgment.iteritems())]
 
-    for entry in results:
-        entry['judgment']['extra']['hrc_partner_brand'].sort()
-        entry['target']['brand'].sort(key=lambda b: b['name'])
-        entry['target']['extra']['category'].sort(key=lambda c: c['name'])
+    for j in results:
+        if j.extra.get('hrcPartnerBrand'):
+            j.extra['hrcPartnerBrand'].sort()
+        j.get('target').get_all('brand').sort(key=lambda b: b.get('name'))
+        j.get('target').get_all('category').sort()
 
     return results
 
 
-def safe_update(dest, src):
+def safe_update(dest, src, merge=(), skip=()):
     for k in src:
-        if k in dest:
+        if k in skip:
+            return
+        elif k in merge:
+            if k in dest or k in src:
+                dest.setdefault(k, [])
+                dest[k].extend(src.get(k, []))
+        elif k in dest:
             assert_that(src[k]).equals(dest[k])
         else:
             dest[k] = src[k]

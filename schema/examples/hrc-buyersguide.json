@@ -1,0 +1,891 @@
+{
+  "type": [
+    "BuyersGuide"
+  ],
+  "properties": {
+    "author": [
+      {
+        "type": [
+          "NGO"
+        ],
+        "properties": {
+          "name": [
+            "Human Rights Campaign"
+          ]
+        }
+      }
+    ],
+    "judgment": [
+      {
+        "type": [
+          "Judgment"
+        ],
+        "properties": {
+          "judgment": [
+            "Good"
+          ],
+          "target": [
+            {
+              "type": [
+                "Corporation"
+              ],
+              "properties": {
+                "category": [
+                  "Food & Beverages",
+                  "Health & Beauty",
+                  "Kids"
+                ],
+                "brand": [
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "ACUVUE"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "AMBI"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Aveeno"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "BAND-AID"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "BENGAY"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Benadryl"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Food & Beverages"
+                      ],
+                      "name": [
+                        "Benecol"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1223"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "CORTAID"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Caladryl"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Carefree"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Clean & Clear"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Compeed"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Daktarin"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Kids"
+                      ],
+                      "name": [
+                        "Destin"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1230"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Dolormin"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Imodium"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Johnson RED CROSS"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Kids"
+                      ],
+                      "name": [
+                        "Johnson's"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1230"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "K-Y"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "LISTERINE"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "LISTERINE Whitening"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Food & Beverages"
+                      ],
+                      "name": [
+                        "Lactaid"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1223"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Lubriderm"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Motrin"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Mylanta"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "NEOSPORIN"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Neutrogena"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Nicorette"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "PIZ BUIN"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "PURPOSE"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Pepcid"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "REACH"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "REMBRANDT"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "RoC"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Rogaine"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Rolaids"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "SHOWER to SHOWER"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "SUDAFED"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Savlon"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Food & Beverages"
+                      ],
+                      "name": [
+                        "Splenda"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1223"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Stayfree"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "TUCKS"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "TYLENOL"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "TYLENOL-PM"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "VENDOME"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Food & Beverages"
+                      ],
+                      "name": [
+                        "Viactiv"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1223"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "Visine"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "ZYRTEC"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "bebe"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "o.b."
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  },
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "category": [
+                        "Health & Beauty"
+                      ],
+                      "name": [
+                        "skin iD"
+                      ]
+                    },
+                    "extra": {
+                      "hrcCategoryID": "1225"
+                    }
+                  }
+                ],
+                "name": [
+                  "Johnson & Johnson"
+                ]
+              },
+              "extra": {
+                "hrcOrgID": "1228",
+                "hrcCategoryID": [
+                  "1223",
+                  "1225",
+                  "1230"
+                ]
+              }
+            }
+          ],
+          "name": [
+            "100 out of 100"
+          ]
+        },
+        "extra": {
+          "hrcPartnerBrand": [
+            "VENDOME"
+          ],
+          "respondedToSurvey": true,
+          "isHrcPartner": false,
+          "rank": 100
+        }
+      },
+    ],
+    "description": [
+      "More than ever, consumers are sending a message to businesses that they are watching. They are watching to see if the businesses they patronize understand and honor issues important to them, giving buying power to issues ranging from LGBT inclusiveness to environmental protection. Corporate social responsibility has become an imperative for a successful business. With Buying for Workplace Equality, we hope to harness that power by providing you with the most accurate review of a business's workplace policies toward LGBT employees.\n\nWhether you are buying a cup of coffee or renovating your home, by supporting businesses that support workplace equality you send a powerful message that LGBT inclusion is good for the bottom line. We hope that you will use this guide as one component when determining if a business's social practices make it worthy of your dollars."
+    ],
+    "name": [
+      "Buyer's Guide"
+    ]
+  }
+}
