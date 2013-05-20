@@ -68,16 +68,19 @@ Environmental Defense Fund - Seafood Selector
   http://www.edf.org/about/this-site/copyright
 - probably about the same data as fishwise.org
 
-ROC United Diners Guide
+ROC (Restaurant Opportunity Center) United Diners Guide
 - http://rocunited.org/dinersguide/
 - Labor conditions for major restaurants and chains
 - only available in PDF (and App form)
 - Data is a bit fiddly; how to make a judgment? I guess 2+ stars is Good, 1 star is Mixed, and 0 stars or a sad face is Bad
 
+Green Plus - http://gogreenplus.org/
+B Corporation - http://www.bcorporation.net/
+Who Profits - The Israeli Occupation Industry http://whoprofits.org/
+
 behindthebrands.org (Oxfam):
 - detailed ratings for major brands
 - best result is orange (not good enough to be yellow), so would look like a boycott of all major brands, which is surely not the intent. Probably should rate them Mixed or Bad (red or dark red).
-
 
 MIGHT BE STALE:
 
