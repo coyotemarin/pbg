@@ -1,0 +1,88 @@
+{
+  "properties": {
+    "author": [
+      {
+        "properties": {
+          "name": [
+            "UNITE HERE"
+          ]
+        },
+        "type": [
+          "LaborUnion"
+        ]
+      }
+    ],
+    "copyrightHolder": [
+      {
+        "properties": {
+          "name": [
+            "UNITE HERE"
+          ]
+        },
+        "type": [
+          "LaborUnion"
+        ]
+      }
+    ],
+    "copyrightYear": [
+      2013
+    ],
+    "judgment": [
+      {
+        "properties": {
+          "judgment": [
+            "Good"
+          ],
+          "name": [
+            "Please Patronize"
+          ],
+          "target": [
+            {
+              "properties": {
+                "address": [
+                  {
+                    "properties": {
+                      "addressCountry": [
+                        "CA"
+                      ],
+                      "locality": [
+                        "Calgary"
+                      ],
+                      "postalCode": [
+                        "T2P 0M7"
+                      ],
+                      "region": [
+                        "AB"
+                      ],
+                      "streetAddress": [
+                        "618 -5Th Ave. SW"
+                      ],
+                      "telephone": "(403) 263-0520"
+                    },
+                    "type": [
+                      "PostalAddress"
+                    ]
+                  }
+                ],
+                "name": [
+                  "5 Calgary Downtown Suites"
+                ]
+              },
+              "type": [
+                "Hotel"
+              ]
+            }
+          ]
+        },
+        "type": [
+          "Judgment"
+        ]
+      },
+    "name": [
+      "Union Hotel Guide"
+    ]
+  },
+  "type": [
+    "BuyersGuide"
+  ]
+}

@@ -70,8 +70,10 @@ def main():
     assert_that(the_word_copyright).equals('Copyright')
     copyrightYear = int(copyrightYear)
     author = {
-        'type': 'Organization/LaborUnion',
-        'name': author_name,
+        'type': ['LaborUnion'],
+        'properties': {
+            'name': [author_name],
+        },
     }
 
     tables = soup.select('table div table')
@@ -83,7 +85,7 @@ def main():
     tds = trs[0].select('td')
     assert_that(len(tds)).equals(2)
 
-    recommendations = []
+    judgments = []
 
     for td in tds:
         category = None
@@ -93,18 +95,20 @@ def main():
                 if child.name == 'h3':
                     category = child.string.strip()
                 elif child.name == 'p':
-                    recommendations.append(parse_p(child, category))
+                    judgments.append(parse_p(child, category))
 
     result = {
-        'type': 'CreativeWork/BuyingGuideV1',
-        'name': name,
-        'author': author,
-        'copyrightYear': copyrightYear,
-        'copyrightHolder': author,
-        'recommendation': recommendations,
+        'type': ['BuyersGuide'],
+        'properties': {
+            'name': [name],
+            'author': [author],
+            'copyrightYear': [copyrightYear],
+            'copyrightHolder': [author],
+            'judgment': judgments,
+        },
     }
 
-    json.dump(result, sys.stdout, sort_keys=True, indent=4)
+    json.dump(result, sys.stdout, sort_keys=True, indent=2)
 
 
 def parse_p(p, category):
@@ -125,41 +129,47 @@ def parse_p(p, category):
 
     if len(lines) >= 4:
         assert_that(lines[3]).starts_with('Phone: ')
-        address['telephone'] = lines[3][7:]
+        address['properties']['telephone'] = lines[3][7:]
 
     return {
-        'judgment': {
-            'type': 'Enumeration/Judgment/' + judgment,
-            'name': judgment_name,
+        'type': ['Judgment'],
+        'properties': {
+            'judgment': [judgment],
+            'name': [judgment_name],
+            'target': [{
+                'type': ['Hotel'],
+                'properties': {
+                    'name': [name],
+                    'address': [address],
+                },
+            }],
         },
-        'target': {
-            'type': 'Hotel',
-            'name': name,
-            'address': address,
-        }
     }
 
 
 def parse_addr(lines):
     assert_that(len(lines)).ge(1).le(2)
 
-    address = {}
+    addr = {}
 
     if len(lines) >= 2:
-        address['streetAddress'] = lines[0]
+        addr['streetAddress'] = lines[0]
 
     m = ADDRESS_RE.match(lines[-1])
     assert_that(m).is_true()
 
-    address['locality'] = m.group('locality')
-    address['region'] = m.group('region')
-    address['addressCountry'] = (
+    addr['locality'] = m.group('locality')
+    addr['region'] = m.group('region')
+    addr['addressCountry'] = (
         'CA' if m.group('region') in CANADA_REGIONS else 'US')
 
     if m.group('postal'):
-        address['postalCode'] = m.group('postal')
+        addr['postalCode'] = m.group('postal')
 
-    return address
+    return {
+        'type': ['PostalAddress'],
+        'properties': dict((k, [v]) for k, v in addr.iteritems()),
+    }
 
 
 if __name__ == '__main__':
