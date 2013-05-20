@@ -73,12 +73,27 @@ we don't have a spec for yet.
 
 Fields I'll need to add:
 
-to Organization, Brand, Product:
+to Organization:
+- subsidiaryOf
+
+to Brand:
 - ownedBy
+
+to Organization and Brand:
 - gtinPrefix -- prefix(es) for barcodes belonging to this brand/company
 
 to Organization, Brand, Product:
 - purchaseUrl -- where to buy this product
+
+to Brand and Product
+- naics and isicV4 (industry codes)
+
+to Thing:
+- category -- free-text category hierarchy. use slashes! Need this to find
+  Good alternatives for products judged Bad or Mixed
+
+(category exists in GoodRelations; it's just not in schema.org. See
+http://www.heppnetz.de/ontologies/goodrelations/v1#category)
 
 to NGO:
 - donationUrl -- how to donate to this NGO (e.g. HRC)
