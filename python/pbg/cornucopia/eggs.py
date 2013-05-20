@@ -76,7 +76,7 @@ def main():
             elif rating == 2:
                 judgment_type = 'Mixed'
             else:
-                judgment_type = 'Poor'
+                judgment_type = 'Bad'
 
             judgment.set('judgment', judgment_type)
             judgment.set('name', '%d out of 5' % rating)
