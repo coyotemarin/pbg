@@ -16,6 +16,10 @@ Cornucopia Institute Organic Egg Scorecard
 - http://www.cornucopia.org/organic-egg-scorecard/
 - Python: mbg.cornucopia.eggs
 
+TO ADD TO EXISTING PARSERS:
+- isBasedOnUrl, for the BuyersGuide as a whole, and for individual Judgments
+- naics and isicV4 codes
+- spatial scope (market area) parsing for Cornucopia guide
 
 TO WRITE PARSERS FOR:
 
