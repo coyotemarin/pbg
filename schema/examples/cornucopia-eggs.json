@@ -1,0 +1,83 @@
+{
+  "type": [
+    "BuyersGuide"
+  ],
+  "properties": {
+    "judgment": [
+      {
+        "type": [
+          "Judgment"
+        ],
+        "properties": {
+          "judgment": [
+            "Good"
+          ],
+          "target": [
+            {
+              "type": [
+                "Corporation"
+              ],
+              "properties": {
+                "brand": [
+                  {
+                    "type": [
+                      "Brand"
+                    ],
+                    "properties": {
+                      "name": [
+                        "Hi Q Organic"
+                      ]
+                    }
+                  }
+                ],
+                "name": [
+                  "Day Creek Farms, Inc."
+                ],
+                "location": [
+                  {
+                    "type": [
+                      "PostalAddress"
+                    ],
+                    "properties": {
+                      "addressCountry": [
+                        "US"
+                      ],
+                      "region": [
+                        "WA"
+                      ],
+                      "locality": [
+                        "Sedro Woolley"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "name": [
+            "4 out of 5"
+          ]
+        },
+        "extra": {
+          "total_score": 1920,
+          "market_area": "Washington State"
+        }
+      },
+    ],
+    "name": [
+      "Organic Egg Scorecard"
+    ],
+    "author": [
+      {
+        "type": [
+          "NGO"
+        ],
+        "properties": {
+          "name": [
+            "Organic Egg Scorecard"
+          ]
+        }
+      }
+    ]
+  }
+}

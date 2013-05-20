@@ -16,7 +16,6 @@
 curl http://www.cornucopia.org/organic-egg-scorecard/ > eggs.html
 python -m pbg.cornucopia.eggs eggs.html
 """
-import json
 import sys
 from optparse import OptionParser
 
@@ -25,15 +24,8 @@ from bs4 import BeautifulSoup
 from pyassert import assert_that
 
 
-# TODO: parse these out of the document
-HARD_CODED_FIELDS = {
-    'type': 'CreativeWork/BuyingGuideV1',
-    'name': 'Organic Egg Scorecard',
-    'author': {
-        'type': 'Organization/NGO',
-        'name': 'The Cornucopia Institute',
-    },
-}
+from pbg.common.microdata import Item
+
 
 STATE_NAME_TO_ABBR = {
     'Michigan': 'MI',
@@ -50,7 +42,7 @@ def main():
 
     # use html5lib, as the default parser excludes almost all of the body
     soup = BeautifulSoup(html, 'html5lib')
-    recs = []
+    judgments = []
 
     table = soup.find('table', {'id': 'organic-egg-scorecard'})
 
@@ -60,7 +52,7 @@ def main():
     for tr in trs:
         tds = tr.find_all('td')
         if len(tds) == 6:
-            rec = {}
+            judgment = Item('Judgment')
             if not tds[0].a:
                 continue
 
@@ -69,14 +61,14 @@ def main():
             assert_that(company_name).starts_with('by ')
             company_name = company_name[3:].strip()
 
-            rec['target'] = {
-                'type': 'Corporation',
-                'name': company_name,
-                'brand': {
-                    'type': 'Brand',
-                    'name': brand_name,
-                },
-            }
+            brand = Item('Brand')
+            brand.set('name', brand_name)
+
+            target = Item('Corporation')
+            target.set('name', company_name)
+            target.set('brand', brand)
+
+            judgment.set('target', target)
 
             rating = int(tds[1].string)
             if rating >= 3:
@@ -86,48 +78,51 @@ def main():
             else:
                 judgment_type = 'Poor'
 
-            rec['judgment'] = {
-                'type': 'Enumeration/Judgment/' + judgment_type,
-                # TODO: parse rating descriptions for each section
-                'name': '%d out of 5' % rating,
-                'extra': {},
-            }
+            judgment.set('judgment', judgment_type)
+            judgment.set('name', '%d out of 5' % rating)
 
             location = tds[2].string
             if location and location.strip():
                 parts = location.strip().split(', ')
                 assert_that(len(parts)).ge(1).le(2)
-                place = {
-                    'type': 'PostalAddress',
-                    'addressCountry': 'US',
-                }
+
+                addr = Item('PostalAddress')
+                # this guide only covers US companies
+                addr.set('addressCountry', 'US')
+
                 state = parts[-1]
                 if len(state) != 2:
                     assert_that(STATE_NAME_TO_ABBR).contains(state)
-                    state = STATE_NAME_TO_ABBR[state]
-                place['region'] = state.upper()
+                    state = STATE_NAME_TO_ABBR[state].upper()
+                addr.set('region', state)
+
                 if len(parts) == 2:
-                    place['locality'] = parts[0]
+                    addr.set('locality', parts[0])
 
-                rec['target']['location'] = location
-
+                target.set('location', addr)
 
             market_area = tds[3].string
             if market_area and market_area.strip():
                 # TODO: parse this and add it to the "spatial" field
-                rec['target'].setdefault('extra', {})
-                rec['target']['extra']['market_area'] = market_area
+                judgment.extra['market_area'] = market_area
 
-            rec['judgment']['extra']['total_score'] = int(tds[4].string)
+            judgment.extra['total_score'] = int(tds[4].string)
 
-            recs.append(rec)
+            judgments.append(judgment)
 
-    assert len(recs) > 20
+    assert len(judgments) > 20
 
-    guide = HARD_CODED_FIELDS.copy()
-    guide['recommendation'] = recs
+    author = Item('NGO')
+    # TODO: parse this from the document
+    author.set('name', 'Organic Egg Scorecard')
 
-    json.dump(guide, sys.stdout, sort_keys=True, indent=4)
+    guide = Item('BuyersGuide')
+    guide.set('author', author)
+    # TODO: parse this from document
+    guide.set('name', 'Organic Egg Scorecard')
+    guide.props['judgment'] = judgments
+
+    sys.stdout.write(guide.json())
 
 
 if __name__ == '__main__':
