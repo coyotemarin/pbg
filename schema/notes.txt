@@ -1,0 +1,111 @@
+Goal: define a microdata format for Buyer's Guides
+
+I plan to mostly work in JSON/CouchDB. The WHATWG spec for storing microdata
+in JSON is here:
+
+    http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#json
+
+and can be produced by microdata.js, available here:
+
+    https://gitorious.org/microdatajs/
+
+and has a good demo here:
+
+    http://foolip.org/microdatajs/live/
+
+Here's a slightly abridged example from schema.org/Organization:
+
+    {
+      "type": [
+        "http://schema.org/Organization"
+      ],
+      "properties": {
+        "name": [
+          "Google.org (GOOG)"
+        ],
+        "address": [
+          {
+            "type": [
+              "http://schema.org/PostalAddress"
+            ],
+            "properties": {
+              "streetAddress": [
+                "38 avenue de l'Opera"
+              ],
+              "postalCode": [
+                "F-75002"
+              ],
+              "addressLocality": [
+                "Paris, France"
+              ]
+            }
+          }
+        ],
+        "telephone": [
+          "( 33 1) 42 68 53 00 "
+        ],
+        "faxNumber": [
+          "( 33 1) 42 68 53 01 "
+        ],
+        "email": [
+          "secretariat(at)google.org"
+        ]
+      }
+    }
+
+(I've omitted the enclosing {'items': [ ... ]} in the spec; that's for parsing
+microdata out of a document, not for representing individual things.)
+
+So, this is fairly verbose, but we'll use compression, and for the sake of
+programming, it's better to be consistent than compact. I'll just use type
+names, not URLs (or if you like, assume all my URLs are based at
+http://spendright.org/schema/).
+
+My goal is to use the schema.org microdata definitions as closely as possible,
+and when I add fields, to try to be consistent as possible.
+
+The WHATWG spec also talks about an "id" field (in addition to "type" and
+"properties") which I'll use to reference other documents. At the top level
+this will be "_id", of course.
+
+I'll also add an "extra" field to store data that's potentially useful but that
+we don't have a spec for yet.
+
+Fields I'll need to add:
+
+to Organization, Brand, Product:
+- ownedBy
+- gtinPrefix -- prefix(es) for barcodes belonging to this brand/company
+
+to Organization, Brand, Product:
+- purchaseUrl -- where to buy this product
+
+to NGO:
+- donationUrl -- how to donate to this NGO (e.g. HRC)
+
+Classes I'll want to add:
+
+LaborUnion (subclass of Organization)
+LaborUnionLocal (LaborUnion + localNumber -- labor411.org uses this)
+
+Classes specific to Buyer's Guides:
+
+CreativeWork/ConsumerCampaign
+- judgment -- list of recommendations
+- spatial -- Place -- spatial applicability (i.e. market)
+
+Thing/Judgment
+- target: Thing (usually Organization, Brand, Product)
+- judgment: Enumeration/JudgmentType (Good, Bad, or Mixed)
+- name (from Thing): short description (e.g. "50 out of 100")
+- caveat: short phrase to include with an asterisk
+- description: long-form descripton
+- spatial (Place) -- spatial applicability (i.e. market)
+
+I'll also eventually want to allow ad-hoc schema for tabular data accompanying
+buyer's guides. I think I want to use Class and Property.
+
+Here's an example from schema.org (it uses "Type", the old name, instead
+of "Class").
+
+   http://schema.org/docs/full_md.html

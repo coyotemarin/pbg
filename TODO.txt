@@ -1,27 +1,20 @@
-COMPLETE:
+COMPLETE ENOUGH TO BE USABLE:
 
 Hotel Workers Rising - Union Hotel Guide
 - http://www.hotelworkersrising.org/HotelGuide/results.php
+- Python: mbg.unitehere.uhg
 - Many variations of "boycott Hyatt, except unionized Hyatt hotels" exist
   on the web, but this lists all (presumably) hotel locations and is
   consistently organized. For an example of similar data in a much messier
   format, see http://www.unionlabel.org/?zone=/unionactive/view_article.cfm&HomeID=150708&page=Boycott.
 
-
-PARTIALLY COMPLETE:
-
 Human Rights Campaign Buying Guide
 - http://www.hrc.org/apps/buyersguide
 - Python: mbg.hrc.buyersguide.*
-- needs rating explanation
-- needs donation URL
 
 Cornucopia Institute Organic Egg Scorecard
 - http://www.cornucopia.org/organic-egg-scorecard/
 - Python: mbg.cornucopia.eggs
-- need to update output format to match HRC guide
-- needs rating explanation
-- needs donation URL
 
 
 TO WRITE PARSERS FOR:
@@ -49,11 +42,6 @@ Stop Rush - Rush Limbaugh Sponsor List
 - Note that the "Statement" column indicates the sponsor has stopped
   advertising (this is a bit non-obvious).
 
-fishwise.org - Sustainable Fish Buying Guides:
-- http://fishwise.org/
-- Make sure to include Retailers, Suppliers, Producers, Restaurants
-- no Terms of Use/policy against copying
-
 Labor 411 (Union Made guide):
 - http://www.labor411.org/consumer-products
 - http://www.labor411.org/city-directories/san-francisco
@@ -63,6 +51,11 @@ Labor 411 (Union Made guide):
   (http://www.labor411.org/index.php?option=com_mtree&task=viewlink&link_id=8772&Itemid=215)
 - Pretty fuzzy idea of what is a brand and what is a company:
   http://www.labor411.org/index.php?option=com_mtree&task=viewlink&link_id=8766&Itemid=215
+
+fishwise.org - Sustainable Fish Buying Guides:
+- http://fishwise.org/
+- Make sure to include Retailers, Suppliers, Producers, Restaurants
+- no Terms of Use/policy against copying
 
 CODE PINK - Stolen Beauty Campaign
 - http://www.stolenbeauty.org/
@@ -75,6 +68,17 @@ Environmental Defense Fund - Seafood Selector
   http://www.edf.org/about/this-site/copyright
 - probably about the same data as fishwise.org
 
+ROC United Diners Guide
+- http://rocunited.org/dinersguide/
+- Labor conditions for major restaurants and chains
+- only available in PDF (and App form)
+- Data is a bit fiddly; how to make a judgment? I guess 2+ stars is Good, 1 star is Mixed, and 0 stars or a sad face is Bad
+
+behindthebrands.org (Oxfam):
+- detailed ratings for major brands
+- best result is orange (not good enough to be yellow), so would look like a boycott of all major brands, which is surely not the intent. Probably should rate them Mixed or Bad (red or dark red).
+
+
 MIGHT BE STALE:
 
 (Contact the author to find out if it's still up-to-date)
@@ -84,6 +88,7 @@ EthicalShopping.com (Consumer Ethics Inc.)
 - http://www.ethicalshopping.com/support.html
 - http://www.ethicalshopping.com/boycott.html
 - site is (c) 2013, but last article is from 2008.
+- emailed them, no response
 
 Food Empowerment Project
 - http://www.foodispower.org/chocolatelist.php
@@ -111,6 +116,11 @@ Environmental Working Group Consumer Guides:
   sales, but EWG probably is funded mostly through donations.
   - Accepts tax-deductible donations to maintain the guides here:
     https://donate.ewg.org/t/11908/p/d/environmental_working_group/ewgcontrib/public/index.sjs?donate_page_KEY=2036
+
+goodguide.com:
+- Health/Environment/Society ratings for lots of household products
+- Terms of Use prohibit reprinting/derivative works
+
 
 
 DO NOT SCRAPE:
