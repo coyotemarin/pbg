@@ -23,7 +23,7 @@ don't have the time to sort through all that data.
 The end-goal of this project is to create an API for buyer's guides, so that every
 buyer's guide out there can be available on any app.
 
-The first major step is to define a [microdata](http://en.wikipedia.org/wiki/Microdata_(HTML)) format for buyer's guides. Microdata's primary use case is annotating web pages in
+The first major step is to define a [microdata](http://schema.org/docs/gs.html) format for buyer's guides. Microdata's primary use case is annotating web pages in
 a machine readable way, which means that if you want a buyer's guide to be added to
 the API, all you have to do is write HTML. Microdata also has a little-known [standard
 JSON format](http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#json), which is great for an API, and for a JSON datastore such as [CouchDB](http://couchdb.apache.org/).
