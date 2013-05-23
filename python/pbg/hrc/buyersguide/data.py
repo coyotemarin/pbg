@@ -181,7 +181,7 @@ def parse_category_page_tr(tr, category_name):
 
     judgment = Item('Judgment')
     judgment.set('target', target)
-    judgment.set('judgment', RATING_COLOR_TO_JUDGMENT_TYPE[color])
+    judgment.set('judgmentType', RATING_COLOR_TO_JUDGMENT_TYPE[color])
     judgment.set('name', '%d out of 100' % rank)
 
     if not responded_to_survey:

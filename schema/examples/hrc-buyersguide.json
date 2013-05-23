@@ -21,7 +21,7 @@
           "Judgment"
         ],
         "properties": {
-          "judgment": [
+          "judgmentType": [
             "Good"
           ],
           "target": [

@@ -128,7 +128,7 @@ def parse_p(p, category):
     hotel.set('address', address)
 
     judgment = Item('Judgment')
-    judgment.set('judgment', judgment_type)
+    judgment.set('judgmentType', judgment_type)
     judgment.set('name', judgment_name)
     judgment.set('target', hotel)
 

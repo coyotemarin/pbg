@@ -78,7 +78,7 @@ def main():
             else:
                 judgment_type = 'Bad'
 
-            judgment.set('judgment', judgment_type)
+            judgment.set('judgmentType', judgment_type)
             judgment.set('name', '%d out of 5' % rating)
 
             location = tds[2].string
