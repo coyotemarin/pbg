@@ -1,4 +1,4 @@
-Parse Buying Guides (for great justice!)
+Parse Buyer's Guides (for great justice!)
 ========================================
 
 There are a lot of consumer campaigns out there on the Internet. Consumer
@@ -6,29 +6,45 @@ campaigns supported by perfectly lovely organizations, organized around
 causes you wholeheartedly support, that would change the world if enough
 people followed through on them.
 
-But when it comes time to make purchasing decisions, who can keep track of all
-[the brands owned by the Koch Brothers](http://www.boycottkochbrothers.com/),
-much less every company on the
-[HRC Buyer's Guide](http://www.hrc.org/apps/buyersguide/). And, sure, in
-the case of the HRC Buyer's Guide,
-[there's an app for that](http://bit.ly/BuyersGuideiPhone) if you're cool
-enough have an iPhone, but how many of these apps are you supposed to have?
-What if you're buying stuff off Amazon?
+The [Buycott App](http://www.buycott.com) came out since I started this project,
+and it's a step in the right direction: people can create their own Boycott/Buycott
+campaigns, and you can use them to inform your buying decisions by scanning barcodes
+in the store. This is better than a single campaign app like the [HRC Buyer's Guide on
+iPhone](https://itunes.apple.com/us/app/hrc-foundation-buying-for/id345618414?mt=8) or
+the [UNITE HERE Hotels Guide](https://itunes.apple.com/us/app/hotels-guide/id557229771?mt=8), but it's still limited to a single use case (scanning barcodes). If you want to
+integrate any of the above campaigns into your amazon.com buying decisions, about the best
+you can do is open each of their websites in a separate tab.
 
-My goal is to make a service that can aggregate all the different consumer
-campaigns together in one place. If you see a campaign you believe in, you
-can subscribe to it, and it'll be there to refer back to when you make
-a purchasing decision. A service like this could be used to power
-[Darcy Burner's hypothetical buying guide app](http://www.forbes.com/sites/clareoconnor/2012/06/18/microsoft-programmer-turned-democrat-politician-plans-anti-koch-brothers-smartphone-app/), an browser plugin for amazon.com and other
-shopping sites, and any number of other things.
+Really, what we need here is a separation of applications and data. The people who
+take the time to put together comprehensive, well-researched buying guides don't have the
+time or the resources to write apps. And the people who are good at writing apps probably
+don't have the time to sort through all that data.
 
-But before we can get every non-profit and well-meaning organization to
-participate, we need to some data to bootstrap the project. Thus the humble
-Parse Buying Guides project.
+The end-goal of this project is to create an API for buyer's guides, so that every
+buyer's guide out there can be available on any app.
 
-I need your help finding interesting buying guides on the web, and writing
-scripts that convert them to some sort of JSON format. We'll work out the
-details of the format as we go; right now we just need some structured data.
+The first major step is to define a [microdata](http://en.wikipedia.org/wiki/Microdata_(HTML)) format for buyer's guides. Microdata's primary use case is annotating web pages in
+a machine readable way, which means that if you want a buyer's guide to be added to
+the API, all you have to do is write HTML. Microdata also has a little-known [standard
+JSON format](http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#json), which is great for an API, and for a JSON datastore such as [CouchDB](http://couchdb.apache.org/).
+
+To ensure that the format reflects real use cases, we're going to parse real buyer's guides
+available on the web, that target a variety of things (corporations, local businesses,
+types of fish). These parsers could also be used to seed a new API with useful data, though if the buzz around the Buycott App is any indication, seeding won't really be
+an issue.
+
+So having everything in the same format would certainly be convenient, but what else could
+we do with a buyer's guide API?
+
+* Browser plugins. Amazon.com plugins would probably have the most economic impact, but
+  you could really annotate any webpage. The [ThinkContext plugin](http://thinkcontext.org/)
+  is pretty useful, and it only supports a handful of buyer's guides.
+* Automatically convert lobbying/campaign contribution data into consumer campaigns, using
+  [opensecrets.org] or something similar. Support a bill? Boycott the companies trying to
+  squash it. Oppose a bill? Boycott the companies behind it.
+* Work our way up the supply chain. If you have a problem with a company like [Cargill](http://www.cargill.com/), which mostly sells to businesses, consumer actions aren't going to have much affect (if it makes you feel better, you can boycott Truvia). However, if we have a way for local businesses to publicly advertise that they subscribe to a particular campaign (e.g. not using Cargill products in their restaurant), then consumers can support those businesses.
+* Apps that work on Android without a network connection. Not really so much to ask.
+* Stuff that no one has imagined yet. Give people the tools, and someone will do something amazing.
 
 How to Help
 ===========
@@ -36,19 +52,11 @@ How to Help
 Finding Buying Guides
 ---------------------
 
-Right now, I'm focusing on guides that are aimed at:
-* consumers (not investors, workers, businesses, volunteers, etc. yet)
-* who are in the U.S. (San Francisco especially)
-* who are politically progressive (however you define that)
-
-Basically, this needs to work for someone before it can work for everyone,
-and I need to be able to dogfood it and test it out on my friends.
-
 I need your help finding interesting guides with useful data. If you use
 GitHub, submit pull requests for changes to `TODO.txt`. If you don't, just
 email me at <dm@davidmarin.org>.
 
-More criteria for guides:
+Criteria for guides:
 * Choose guides on sites that allow or do not explicitly ban downloading their
 content and redistributing it (look at the Terms of Use, and, if you know how
 to read it, [`robots.txt`](http://en.wikipedia.org/wiki/Robots_exclusion_standard)).
@@ -96,46 +104,3 @@ Other guidelines:
     a website to an unknown depth, you are probably off track.
 * Write unit tests for shared/general code, but don't worry about testing
   individual parsers. They will be continuously integration-tested anyway.
-
-My Plan
-=======
-
-My general plan is to start storing the outputs of these programs in some
-sort of indexable JSON data store, probably
-[CouchDB](http://couchdb.apache.org/) (though
-[mongoDB](http://www.mongodb.org/) is on my radar as well).
-
-Next, I'll make an initial API. I've come to terms with the fact that my API
-probably won't be a pure Couch App (too many needs for joins, especially when
-you get into users subscribing to campaigns; filtering by location is a bit
-of a bear as well), but it might look a lot like Couch.
-
-Finally, I'll make a mobile website that runs off the API. Initially, I'll
-open it up to friends and people who contribute to this project, but as soon
-as it doesn't suck, I'll open up it, and the API, to everybody. The API will be
-writeable as well as readable; you'll be able to submit your own campaigns, and
-organizations who created the campaigns parsed by this project will be able
-to manage their own campaigns if they choose to do so.
-
-Other applications that should follow soon after are:
-* Chrome browser plugin for amazon.com.
-* Android app that's similar to the website except it scans barcodes, and works
-  offline (does your smartphone get good reception where you shop?).
-* Web-based interface for creating and managing campaigns.
-
-I *think* I can make this work as a business (or at least pay for server
-costs). If I learned anything from working at Yelp, it's that if people are
-using your site to make buying decisions, there's money to be made somewhere.
-
-However, I consider myself a bit of a "nontrepreneur". I know that starting
-a business is a powerful way to change the world, but I also know that it's a
-tremendous amount of work, work that should only be taken on if no one else
-will do it (or do it right). If I could turn all my business ideas into
-businesses [like this](http://xkcd.com/1060/), I probably would.
-
-If this *is* something you're serious about wanting to take on,
-[contact me](dm@davidmarin.org), and I'll probably help you out, maybe even
-invest in your company or serve on the board. If not, hey, I'm a competent guy,
-and I'll do what needs to be done. :)
-
-Thanks for your help!
