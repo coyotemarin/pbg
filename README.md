@@ -38,10 +38,10 @@ we do with a buyer's guide API?
 
 * Browser plugins. Amazon.com plugins would probably have the most economic impact, but
   you could really annotate any webpage. The [ThinkContext plugin](http://thinkcontext.org/)
-  is pretty useful, and it only supports a handful of buyer's guides.
+  is pretty useful even supporting only a handful of buyer's guides.
 * Automatically convert lobbying/campaign contribution data into consumer campaigns, using
-  [opensecrets.org] or something similar. Support a bill? Boycott the companies trying to
-  squash it. Oppose a bill? Boycott the companies behind it.
+  [opensecrets.org](http://www.opensecrets.org/) or something similar. Support a bill?
+  Boycott the companies trying to squash it. Oppose a bill? Boycott the companies behind it.
 * Work our way up the supply chain. If you have a problem with a company like [Cargill](http://www.cargill.com/), which mostly sells to businesses, consumer actions aren't going to have much affect (if it makes you feel better, you can boycott Truvia). However, if we have a way for local businesses to publicly advertise that they subscribe to a particular campaign (e.g. not using Cargill products in their restaurant), then consumers can support those businesses.
 * Apps that work on Android without a network connection. Not really so much to ask.
 * Stuff that no one has imagined yet. Give people the tools, and someone will do something amazing.
