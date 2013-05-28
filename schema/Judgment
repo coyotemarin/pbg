@@ -22,7 +22,9 @@
       <a href="Judgment">Judgment</a>
 
   </h1>
-  <p>A moral judgment about a given company, brand, product, etc. We intentionally avoid using <a href="http://schema.org/Rating">Rating</a> for two reasons:</p>
+  <p>A moral judgment about a given company, brand, product, etc. Designed for use in a <a href="BuyersGuide">BuyersGuide</a>, but probably generally applicable.</p>
+
+  <p>We intentionally avoid using <a href="http://schema.org/Rating">Rating</a> for two reasons:</p>
 
   <ul>
     <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk painting everything an uninspiring gray area.</li>
@@ -141,7 +143,7 @@
 
 
           </td>
-          <td class="prop-desc">Moral judgment of <code>target</code> (good/bad/mixed). If omitted, we assume <a href="Unknown">Unknown</a></td>
+          <td class="prop-desc">Moral judgment of <code>target</code> (good/bad/mixed). You <em>may</em> omit this if you want to include a target for the sake of completeness, but don't yet have enough information to judge it.</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">

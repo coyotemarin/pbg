@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>JudgmentType</title>
+    <title>Bad</title>
     <link rel="stylesheet" type="text/css"
           href="css/schemaorg.css">
 </head>
@@ -23,21 +23,12 @@
       &gt;
       <a href="JudgmentType">JudgmentType</a>
 
+      &gt;
+      <a href="Bad">Bad</a>
   </h1>
-  <p>A kind of moral judgment; see <a href="Judgment">Judgment</a> for motivation and details.</p>
+  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is to be avoided, if not actively undermined. Typically associated with red in buyer's guides' native rating systems.</p>
 
   <p><em>Enumerations are technically a subclass of <a href="http://schema.org/Thing">Thing</a>, but in practice their fields are not used. So I'm not including them.</em></p>
-
-  <h3>Instances of JudgmentType</h3>
-  <ul>
-
-    <li><a href="Bad">Bad</a>
-
-    <li><a href="Good">Good</a>
-
-    <li><a href="Mixed">Mixed</a>
-
-  </ul>
 
   </div>
 
