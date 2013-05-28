@@ -24,12 +24,12 @@
       <a href="JudgmentType">JudgmentType</a>
 
       &gt;
-      <a href="Mixed">Mixed</a>
+      <a href="MixedBag">MixedBag</a>
 
       &gt;
       <a href="Improving">Improving</a>
   </h1>
-  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is <a href="Mixed">Mixed</a> or <a href="Bad">Bad</a> but getting better, with the implication that the user can help this process along through their actions. The <a href="http://seafood.edf.org/tilefish">EDF Seafood Selector entry for Tilefish</a> is one such example.</p>
+  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is <a href="Bad">Bad</a> or a <a href="MixedBag">MixedBag</a> but getting better, with the implication that the user can help this process along through their actions. The <a href="http://seafood.edf.org/tilefish">EDF Seafood Selector entry for Tilefish</a> is one such example.</p>
 
   <p><em>Enumerations are technically a subclass of <a href="http://schema.org/Thing">Thing</a>, but in practice their fields are not used. So I'm not including them.</em></p>
 

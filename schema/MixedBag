@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mixed</title>
+    <title>MixedBag</title>
     <link rel="stylesheet" type="text/css"
           href="css/schemaorg.css">
 </head>
@@ -24,13 +24,13 @@
       <a href="JudgmentType">JudgmentType</a>
 
       &gt;
-      <a href="Mixed">Mixed</a>
+      <a href="MixedBag">MixedBag</a>
   </h1>
   <p>Indicates that a target of a <a href="Judgment">Judgment</a> is a mixed bag. Typically associated with yellow (sometimes orange) in buyer's guides' native rating systems.</p>
 
   <p><em>Enumerations are technically a subclass of <a href="http://schema.org/Thing">Thing</a>, but in practice their fields are not used. So I'm not including them.</em></p>
 
-  <h3>Instances of Mixed</h3>
+  <h3>Instances of MixedBag</h3>
   <ul>
 
     <li><a href="Improving">Improving</a>

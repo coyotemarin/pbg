@@ -29,7 +29,7 @@
       &gt;
       <a href="Worsening">Worsening</a>
   </h1>
-  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is <a href="Mixed">Mixed</a> or <a href="Good">Good</a> but getting worse, with the implication that users can help turn the tide through their actions.
+  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is <a href="Good">Good</a> or a <a href="MixedBag">MixedBag</a> but getting worse, with the implication that users can help turn the tide through their actions.
 
   <p><em>Enumerations are technically a subclass of <a href="http://schema.org/Thing">Thing</a>, but in practice their fields are not used. So I'm not including them.</em></p>
 
