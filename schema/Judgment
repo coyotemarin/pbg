@@ -28,7 +28,7 @@
   <p>We intentionally avoid using <a href="http://schema.org/Rating">Rating</a> for two reasons:</p>
 
   <ul>
-    <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk painting everything an uninspiring gray area.</li>
+    <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk making everything an uninspiring gray area.</li>
     <li>The polarized nature of some campaigns gives a strong incentive to polarize numeric ratings, which would make them incomparable anyway.</li>
   </ul>
 
