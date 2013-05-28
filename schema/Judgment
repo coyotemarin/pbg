@@ -147,6 +147,20 @@
           <td class="prop-desc">Moral judgment of <code>target</code> (good/bad/mixed). You <em>may</em> omit this if you want to include a target for the sake of completeness, but don't yet have enough information to judge it.</td>
         </tr>
 
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>spatial</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Place">Place</a>
+
+
+          </td>
+          <td class="prop-desc">Place or places where <code>target</code> is relevevant (e.g. the market area of a targeted product), to prevent showing irrelevant judgments to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
+        </tr>
+
         <tr><th class="prop-nam relevant" scope="row">
           <code>target</code></th>
           <td class="prop-ect">
@@ -164,6 +178,7 @@
           </td>
           <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>). Text is also allowed (examples: "Generic Aspirin", "Your local farmer's market."). You <em>may</em> include multiple targets in the same judgment as a shorthand for applying an identical judgment to each target.</td>
         </tr>
+
 
 
          </table>
