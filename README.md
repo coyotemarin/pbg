@@ -23,7 +23,7 @@ don't have the time to sort through all that data.
 The end-goal of this project is to create an API for buyer's guides, so that every
 buyer's guide out there can be available on any app.
 
-The first major step is to define a [microdata](http://schema.org/docs/gs.html) format for buyer's guides, which I've begun [here](https://raw.github.com/davidmarin/pbg/master/schema/BuyersGuide).
+The first major step is to define a [microdata](http://schema.org/docs/gs.html) format for buyer's guides, which I've begun [here](https://raw.github.com/davidmarin/pbg/master/schema/BuyersGuide.html).
 
 Microdata's primary use case is annotating web pages in
 a machine readable way, which means that if you want a buyer's guide to be added to
