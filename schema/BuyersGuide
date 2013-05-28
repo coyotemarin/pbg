@@ -17,7 +17,7 @@
       <a href="http://schema.org/Thing">Thing</a>
 
       &gt;
-      <a href="http://CreativeWork">CreativeWork</a>
+      <a href="http://schema.org/CreativeWork">CreativeWork</a>
 
       &gt;
       <a href="BuyersGuide">BuyersGuide</a>
@@ -60,7 +60,7 @@
 
 
           </td>
-          <td class="prop-desc">A short (2 paragraphs or less) explanation of why the guide was created and the methodolgy behind it.</td>
+          <td class="prop-desc">A short (2 paragraphs or less) explanation of why the guide was created and the methodology behind it.</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -570,7 +570,7 @@
 
 
           </td>
-          <td class="prop-desc">Type(s) of causes behind this buyer's guide (e.g. Economic Justice, Veterans) and/or type(s) of targets (e.g. Hotels, Fish). <em>(Comment on original standard: shouldn't this be "keyword", singular? Or are we "keywording" these things?)</td>
+          <td class="prop-desc">Type(s) of causes behind this buyer's guide (e.g. Economic Justice, Veterans) and/or type(s) of targets (e.g. Hotels, Fish).
         </tr>
 
         <tr><th class="prop-nam" scope="row">

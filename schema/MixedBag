@@ -27,7 +27,7 @@
       &gt;
       <a href="MixedBag">MixedBag</a>
   </h1>
-  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is a mixed bag. Typically associated with yellow (sometimes orange) in buyer's guides' native rating systems.</p>
+  <p>Indicates that a target of a <a href="Judgment">Judgment</a> is a mixed bag. Typically associated with yellow or orange in buyer's guides' native rating systems.</p>
 
   <p><em>Enumerations are technically a subclass of <a href="http://schema.org/Thing">Thing</a>, but in practice their fields are not used. So I'm not including them.</em></p>
 
