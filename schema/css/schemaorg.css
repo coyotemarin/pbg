@@ -110,19 +110,19 @@ color: #fff;
 background-color: #006600;
 text-decoration: none;
 }
-#mainContent a[href^="http://"]:link
+#mainContent a[href^="http://schema.org/"]:link
 {
 color: #660000;
 text-decoration: none;
 border-bottom: dotted 1px #660000;
 }
-#mainContent a[href^="http://"]:visited
+#mainContent a[href^="http://schema.org/"]:visited
 {
 color: #990000;
 text-decoration: none;
 border-bottom: dotted 1px #990000;
 }
-#mainContent a[href^="http://"]:hover
+#mainContent a[href^="http://schema.org/"]:hover
 {
 border-bottom: none;
 color: #fff;
