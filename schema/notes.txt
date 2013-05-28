@@ -90,7 +90,7 @@ to Brand and Product
 
 to Thing:
 - category -- free-text category hierarchy. use slashes! Need this to find
-  Good alternatives for products judged Bad or Mixed
+  Good alternatives for products judged Bad or MixedBag
 
 (category exists in GoodRelations; it's just not in schema.org. See
 http://www.heppnetz.de/ontologies/goodrelations/v1#category)
@@ -100,8 +100,8 @@ to NGO:
 
 Classes I'll want to add:
 
-LaborUnion (subclass of Organization)
-LaborUnionLocal (LaborUnion + localNumber -- labor411.org uses this)
+WorkersUnion (this is actually already accepted by W3C)
+WorkersUnionLocal (WorkersUnion + localNumber -- labor411.org uses this)
 
 Classes specific to Buyer's Guides:
 
@@ -111,7 +111,7 @@ CreativeWork/ConsumerCampaign
 
 Thing/Judgment
 - target: Thing (usually Organization, Brand, Product)
-- judgmentType: Enumeration/JudgmentType (Good, Bad, or Mixed)
+- judgmentType: Enumeration/JudgmentType (Good, Bad, or MixedBag)
 - name (from Thing): short description (e.g. "50 out of 100")
 - caveat: short phrase to include with an asterisk
 - description: long-form descripton

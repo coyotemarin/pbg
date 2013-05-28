@@ -9,7 +9,7 @@
     "copyrightHolder": [
       {
         "type": [
-          "LaborUnion"
+          "WorkersUnion"
         ],
         "properties": {
           "name": [
@@ -78,7 +78,7 @@
     "author": [
       {
         "type": [
-          "LaborUnion"
+          "WorkersUnion"
         ],
         "properties": {
           "name": [
