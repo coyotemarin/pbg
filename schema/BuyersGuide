@@ -22,9 +22,9 @@
       <a href="BuyersGuide">BuyersGuide</a>
 
   </h1>
-  A guide describing which products or services to buy, and which to avoid, often organized around a particular cause (e.g. the <a href="http://www.hrc.org/apps/buyersguide/">Human Rights Campaign Buyer's Guide</a>).
+  <p>A guide describing which products or services to buy, and which to avoid, often organized around a particular cause (e.g. the <a href="http://www.hrc.org/apps/buyersguide/">Human Rights Campaign Buyer's Guide</a>).</p>
 
-
+  <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
 
         <table cellspacing="3" class="definition-table">
         <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>
@@ -49,7 +49,7 @@
           <td class="prop-desc">An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>description</code></th>
           <td class="prop-ect">
 
@@ -62,7 +62,7 @@
           <td class="prop-desc">A short (2 paragraphs or less) explanation of why the guide was created and the methodolgy behind it.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>image</code></th>
           <td class="prop-ect">
 
@@ -75,7 +75,7 @@
           <td class="prop-desc">URL of banner image for this guide.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>name</code></th>
           <td class="prop-ect">
 
@@ -88,7 +88,7 @@
           <td class="prop-desc">The name of the item. Should not include the name of the authoring organization, which should appear in <code>author.name</code>. For example, &quot;<a href="http://seafood.edf.org/">Seafood Selector</a>&quot;, not "Environmental Defense Fund Seafood Selector".</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>url</code></th>
           <td class="prop-ect">
 
@@ -120,7 +120,7 @@
 
 
           </td>
-          <td class="prop-desc">The subject matter of the content.</td>
+          <td class="prop-desc">The subject matter of the content. (This is redundant with <code>judgment</code>.)</td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
@@ -201,7 +201,7 @@
           <td class="prop-desc">An embedded audio object.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>author</code></th>
           <td class="prop-ect">
 
@@ -245,7 +245,7 @@
           <td class="prop-desc">Awards won by this person or for this creative work. (legacy spelling; see singular form, award)</td>
         </tr>
 
-        <tr><th class="prop-nam" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>comment</code></th>
           <td class="prop-ect">
 
@@ -255,7 +255,7 @@
 
 
           </td>
-          <td class="prop-desc">Comments, typically from users, on this CreativeWork.</td>
+          <td class="prop-desc">Comments from people using this buyer's guide describing why they subscribe to it, and how following it impacted their lives. The primary purpose is not to critique the campaign behind the buyer's guide (just start your own counter-campaign) but to build a community of support around it.</td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
@@ -284,7 +284,7 @@
           <td class="prop-desc">Official rating of a piece of content&#x2014;for example,'MPAA PG-13'.</td>
         </tr>
 
-        <tr><th class="prop-nam" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>contributor</code></th>
           <td class="prop-ect">
 
@@ -302,7 +302,7 @@
           <td class="prop-desc">A secondary contributor to the CreativeWork.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>copyrightHolder</code></th>
           <td class="prop-ect">
 
@@ -320,7 +320,7 @@
           <td class="prop-desc">The party holding the legal copyright to the CreativeWork. If not present, assumed to be the same as <code>author</code>.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>copyrightYear</code></th>
           <td class="prop-ect">
 
@@ -351,7 +351,7 @@
           <td class="prop-desc">The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>dateCreated</code></th>
           <td class="prop-ect">
 
@@ -364,7 +364,7 @@
           <td class="prop-desc">The date on which the CreativeWork was created.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>dateModified</code></th>
           <td class="prop-ect">
 
@@ -494,7 +494,7 @@
           <td class="prop-desc">Headline of the article</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>inLanguage</code></th>
           <td class="prop-ect">
 
@@ -533,7 +533,7 @@
           <td class="prop-desc">The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>isBasedOnUrl</code></th>
           <td class="prop-ect">
 
@@ -559,7 +559,7 @@
           <td class="prop-desc">Indicates whether this content is family friendly.</td>
         </tr>
 
-        <tr><th class="prop-nam" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>keywords</code></th>
           <td class="prop-ect">
 
@@ -569,7 +569,7 @@
 
 
           </td>
-          <td class="prop-desc">The keywords/tags used to describe this content.</td>
+          <td class="prop-desc">Type(s) of causes behind this buyer's guide (e.g. Economic Justice, Veterans) and/or type(s) of targets (e.g. Hotels, Fish). <em>(Comment on original standard: shouldn't this be "keyword", singular? Or are we "keywording" these things?)</td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
@@ -642,7 +642,7 @@
           <td class="prop-desc">The publisher of the creative work.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>publishingPrinciples</code></th>
           <td class="prop-ect">
 
@@ -781,7 +781,7 @@
         <tbody class="supertype">
 
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>disclaimer</code></th>
           <td class="prop-ect">
 
@@ -794,7 +794,7 @@
           <td class="prop-desc">Legal disclaimer about the guide's content. For example, "The information offered here is intended for educational purposes only. It does not constitute, and should not in any cases be regarded as or relied upon as, legal, or professional advice."</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>judgment</code></th>
           <td class="prop-ect">
 
@@ -807,7 +807,7 @@
           <td class="prop-desc">The core content of the buyer's guide: one or more judgments about whether companies, brands, products should be bought.</td>
         </tr>
 
-        <tr><th class="prop-nam supported" scope="row">
+        <tr><th class="prop-nam relevant" scope="row">
           <code>spatial</code></th>
           <td class="prop-ect">
 
@@ -823,6 +823,7 @@
 
          </table>
 
+  </div>
 
 </body>
 </html>

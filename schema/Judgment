@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Judgment</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+
+  <div id="mainContent">
+
+
+  <h1 class="page-title">
+
+
+      <a href="http://schema.org/Thing">Thing</a>
+
+      &gt;
+      <a href="http://schema.org/Intangible">Intangible</a>
+
+      &gt;
+      <a href="Judgment">Judgment</a>
+
+  </h1>
+  <p>A moral judgment about a given company, brand, product, etc. We intentionally avoid using <a href="http://schema.org/Rating">Rating</a> for two reasons:</p>
+
+  <ul>
+    <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk painting everything an uninspiring gray area.</li>
+    <li>The polarized nature of some campaigns gives a strong incentive to polarize numeric ratings, which would make them incomparable anyway.</li>
+  </ul>
+
+ <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
+
+        <table cellspacing="3" class="definition-table">
+        <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>
+               </tr></thead>
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="http://schema/org/Thing">Thing</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>additionalType</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>description</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A somewhat larger description of the judgment, suitable for display in a tooltip/hover popup. Example: "Businesses/brands that and receive a moderate workplace equality score."</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>image</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>name</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott".</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>url</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of a page explaining the details behind this particular judgment. <a href="http://www.hrc.org/apps/buyersguide/profile.php?orgid=1227">Example</a></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="Rating">Judgment</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>caveat</code></th>
+          <td class="prop-ect">
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Brief description (50 characters or less) of information which is relevant but not the main point of the judgment. For example "High in Mercury" for a campaign which is about saving fisheries.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>judgmentType</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="JudgmentType">JudgmentType</a>
+
+
+          </td>
+          <td class="prop-desc">Moral judgment of <code>target</code> (good/bad/mixed). If omitted, we assume <a href="Unknown">Unknown</a></td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>target</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org">Thing</a>
+
+
+              or
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>). Text is also allowed (examples: "Generic Aspirin", "Your local farmer's market."). You <em>may</em> include multiple targets in the same judgment as a shorthand for applying an identical judgment to each target.</td>
+        </tr>
+
+
+         </table>
+  </div>
+</body>
+</html>

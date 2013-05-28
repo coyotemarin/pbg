@@ -111,7 +111,7 @@ CreativeWork/ConsumerCampaign
 
 Thing/Judgment
 - target: Thing (usually Organization, Brand, Product)
-- judgment: Enumeration/JudgmentType (Good, Bad, or Mixed)
+- judgmentType: Enumeration/JudgmentType (Good, Bad, or Mixed)
 - name (from Thing): short description (e.g. "50 out of 100")
 - caveat: short phrase to include with an asterisk
 - description: long-form descripton

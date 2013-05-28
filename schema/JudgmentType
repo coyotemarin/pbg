@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JudgmentType</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+  <div id="mainContent">
+
+
+  <h1 class="page-title">
+
+
+      <a href="http://schema.org/Thing">Thing</a>
+
+      &gt;
+      <a href="http://schema.org/Intangible">Intangible</a>
+
+      &gt;
+      <a href="http://schema.org/Enumeration">Enumeration</a>
+
+      &gt;
+      <a href="JudgmentType">JudgmentType</a>
+
+  </h1>
+  <p>A kind of moral judgment; see <a href="Judgment">Judgment</a> for motivation and details.</p>
+
+  <p><em>Enumerations are techincally a subclass of <a href="http://schema.org/Thing">Thing</a>, but in practice they don't get their own <code>itemscope</code> and thus their fields are not used. So I'm not including them.</em></p>
+
+  <h3>Instances of JudgmentType</h3>
+  <ul>
+
+    <li><a href="Bad">Bad</a>
+
+    <li><a href="Good">Good</a>
+
+    <li><a href="Mixed">Mixed</a>
+
+    <li><a href="Unknown">Unknown</a>
+
+  </ul>
+
+  </div>
+
+
+</body>
+</html>
