@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Organization</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+  <div id="mainContent">
+
+
+  <h1 class="page-title">
+
+
+      <a href="http://schema.org/Thing">Thing</a>
+
+      &gt;
+      <a href="Organization">Organization</a>
+
+  </h1>
+  <p>An organization such as a school, NGO, corporation, club, etc.</p>
+
+  <p>This is a proposed extension to <a href="http://schema.org/Organization">schema.org/Organization</a>, not a new class. If you want to use this in a webpage, just use <code>itemtype="http://schema.org/Organization"</code> and include our proposed properties as you see fit.</p>
+
+        <table cellspacing="3" class="definition-table">
+        <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>
+               </tr></thead>
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="Thing">Thing</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>additionalType</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>description</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A short description (2 paragraphs or less). Foe xexample: "Costco Wholesale Corporation is a membership-only warehouse club that provides a wide selection of merchandise."</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>image</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>name</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The common name(s) of the organization. You can also use <code>legalName</code> for the full, legal name of this organization (e.g. "Target Corporation").
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>url</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of official webpage of this organization. For other URLs, see <code>contactPoint</code>, <code>donationUrl</code>, <code>infoUrl</code>, and <code>purchaseUrl</code>.</td>
+        </tr>
+
+
+
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="http://schema.org/Organization">schema.org/Organization</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>address</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/PostalAddress">PostalAddress</a>
+
+
+          </td>
+          <td class="prop-desc">Physical address of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>aggregateRating</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/AggregateRating">AggregateRating</a>
+
+
+          </td>
+          <td class="prop-desc">The overall rating, based on a collection of reviews or ratings, of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>brand</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Brand">Brand</a>
+
+
+              or
+
+                <del><a href="Organization">Organization</a></del>
+
+
+          </td>
+          <td class="prop-desc">The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person. Don't use this to point at other <a href="Organization">Organization</a>s; use <code>subsidiary</code> instead.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>contactPoint</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/ContactPoint">ContactPoint</a>
+
+
+          </td>
+          <td class="prop-desc">Way(s) to contact the organization. This includes Facebook and Twitter (use <code>contactPoint.url</code>).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>contactPoints</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/ContactPoint">ContactPoint</a>
+
+
+          </td>
+          <td class="prop-desc">A contact point for a person or organization (legacy spelling; see singular form, contactPoint).</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>duns</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The Dun & Bradstreet DUNS number for identifying an organization or business person.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>email</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Email address.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>employee</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">Someone working for this organization.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>employees</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">People working for this organization. (legacy spelling; see singular form, employee)</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>event</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Event">Event</a>
+
+
+          </td>
+          <td class="prop-desc">Upcoming or past event associated with this place or organization.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>events</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Event">Event</a>
+
+
+          </td>
+          <td class="prop-desc">Upcoming or past events associated with this place or organization (legacy spelling; see singular form, event).</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>faxNumber</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The fax number.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>founder</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">A person who founded this organization.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>founders</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">A person who founded this organization (legacy spelling; see singular form, founder).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>foundingDate</code></th>
+          <td class="prop-ect">
+
+
+
+                Date
+
+
+          </td>
+          <td class="prop-desc">The date that this organization was founded.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>globalLocationNumber</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The Global Location Number (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>hasPOS</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Place">Place</a>
+
+
+          </td>
+          <td class="prop-desc">Points-of-Sales operated by the organization or person.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>interactionCount</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A count of a specific user interactions with this item&#x2014;for example, <code>20 UserLikes</code>, <code>5 UserComments</code>, or <code>300 UserDownloads</code>. The user interaction type should be one of the sub types of <a href='UserInteraction'>UserInteraction</a>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isicV4</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>legalName</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The official name of the organization, e.g. the registered company name.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>location</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Place">Place</a>
+
+
+              or
+
+                <a href="http://schema.org/PostalAddress">PostalAddress</a>
+
+
+          </td>
+          <td class="prop-desc">The location of the event or organization.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>logo</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/ImageObject">ImageObject</a>
+
+
+              or
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image for the logo of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>makesOffer</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Offer">Offer</a>
+
+
+          </td>
+          <td class="prop-desc">A pointer to products or services offered by the organization or person.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>member</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">A member of this organization. Compare to <code>subsidiary</code>, which implies ownership/control.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>members</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">A member of this organization (legacy spelling; see singular form, member).</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>naics</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The North American Industry Classification System (NAICS) code for a particular organization or business person.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>owns</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/OwnershipInfo">OwnershipInfo</a>
+
+
+              or
+
+                <a href="Product">Product</a>
+
+
+          </td>
+          <td class="prop-desc">Products owned by the organization or person. (Use <code>subsidiary</code> for organizations owned by this one.)</td>
+       </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>review</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">A review of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>reviews</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">Review of the item (legacy spelling; see singular form, review).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>seeks</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Demand">Demand</a>
+
+
+          </td>
+          <td class="prop-desc">A pointer to products or services sought by the organization or person (demand).</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>taxID</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>telephone</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The telephone number.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>vatID</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The Value-added Tax ID of the organisation or person.</td>
+        </tr>
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Proposed additional properties</th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>category</code></th>
+          <td class="prop-ect">
+
+
+
+            Text
+
+
+          </td>
+          <td class="prop-desc">Free-form category for this organization (examples: "Paper Products", "Animal Rights"). Use &quot;&gt;&quot; to separate parts of a category hierarchy (e.g. "Restaurants&gt;Italian"). Borrowed from <a href="http://www.heppnetz.de/ontologies/goodrelations/v1#category">GoodRelations' category property</a>.  When possible, subclasses (e.g. <a href="http://schema.org/Hotel">Hotel</a>) or well-defined categorizations (e.g. <code>naics</code>) are preferred.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>donationUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL where you can make a donation to this organization (to help them continue to share and maintain <a href="BuyersGuide">BuyersGuide<a/>s).</td>
+        </tr>
+
+
+
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin13Prefix</code></th>
+          <td class="prop-ect">
+
+
+
+	    Text
+
+
+          </td>
+          <td class="prop-desc">GTIN-13 company prefix(es) belonging to this organization. <a href="http://www.globalproductlist.com/">GlobalProductList.com</a> is one example of a list of such prefixes. To turn a 12-digit UPC code into a GTIN-13, just prepend a leading zero. Based on <a href="http://schema.org/Product">schema.org/Product</a>'s <code>gtin13</code> property.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin14Prefix</code></th>
+          <td class="prop-ect">
+
+
+
+	    Text
+
+
+          </td>
+          <td class="prop-desc">GTIN-14 company prefix(es) belonging to this organization. Based on <a href="http://schema.org/Product">schema.org/Product</a>'s <code>gtin14</code> property. Equivalent to <code>gtin13Prefix</code> plus a leading 0.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>infoUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of third-party articles about this organization (e.g. on Wikipedia). URLs controlled by this organization go under <code>url</code>; URLs where you can buy things from this organization go under <code>purchaseUrl</code>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>memberOf</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+          </td>
+          <td class="prop-desc">An organization that this organization belongs to. Compare to <code>subsidiaryOf</code>, which implies ownership/control.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>purchaseUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) where you can purchase goods or services from or made by this organization (e.g. on Amazon). Useful for lending economic support to <a href="Good">Good</a> organizations, and to help a <a href="BuyersGuide">BuyersGuide</a> API support itself through affiliate programs. It does not matter whether the URL is controlled by this organization.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>subsidiary</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+          </td>
+          <td class="prop-desc">Organization wholly or partially owned by this one. Compare to <code>member</code></td>
+        </tr>
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>subsidiaryOf</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+          </td>
+          <td class="prop-desc">Organization that wholly or partially owns this one (e.g. a parent corporation).</td>
+        </tr>
+         </table>
+
+
+
+
+  <h3>More specific types</h3>
+
+  <p>See <a href="http://schema.org/Organization">schema.org/Organization</a> for subclasses.</p>
+
+  <p>We also support the <code>WorkersUnion</code> subtype, which has been <a href="http://www.w3.org/wiki/WebSchemas/WorkersUnionSchema">accepted by the W3C</a> but is not yet on schema.org. It has no additional properties.</p>
+
+</body>
+</html>
