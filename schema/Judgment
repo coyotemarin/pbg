@@ -170,13 +170,8 @@
                 <a href="http://schema.org/Thing">Thing</a>
 
 
-              or
-
-                Text
-
-
           </td>
-          <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>). Text is also allowed (examples: "Generic Aspirin", "Your local farmer's market."). You <em>may</em> include multiple targets in the same judgment as a shorthand for applying an identical judgment to each target.</td>
+          <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>). You <em>may</em> include multiple targets in the same judgment as a shorthand for applying an identical judgment to each target.</td>
         </tr>
 
 
