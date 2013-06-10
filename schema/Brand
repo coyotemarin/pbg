@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Brand</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+  <div id="mainContent">
+
+
+  <h1 class="page-title">
+
+
+      <a href="http://schema.org/Thing">Thing</a>
+
+      &gt;
+      <a href="Brand">Brand</a>
+
+  </h1>
+  <p>A brand is a name used by an organization or business person for labeling a product, product group, or similar.</p>
+
+  <p>This is a proposed extension to <a href="http://schema.org/Brand">schema.org/Brand</a>, not a new class. If you want to use this in a webpage, just use <code>itemtype="http://schema.org/Brand"</code> and include our proposed properties as you see fit.</p>
+
+
+        <table cellspacing="3" class="definition-table">
+        <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>
+               </tr></thead>
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="Thing">Thing</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>additionalType</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>description</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A short description of the item. For example: "Snickers is a brand name candy bar made by Mars, Incorporated. It consists of nougat topped with caramel and peanuts, enrobed in milk chocolate."</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>image</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of images of product(s) representative of this brand. Use <code>logo</code> for logos.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>name</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The name of the brand.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>url</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of the official brand homepage(s).</td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="http://schema.org/Brand">schema.org/Brand</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>logo</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href=ImageObject>ImageObject</a>
+
+
+              or
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image for the logo of the item.</td>
+        </tr>
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Proposed additional properties</th></tr></thead>
+        <tbody class="supertype">
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>brandOf</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+          </td>
+          <td class="prop-desc">Organization that this brand belongs to.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>category</code></th>
+          <td class="prop-ect">
+
+
+
+            Text
+
+
+          </td>
+          <td class="prop-desc">Free-form category for this brand (examples: "Candy"). Use &quot;&gt;&quot; to separate parts of a category hierarchy (e.g. "Health and Beauty&gt;Hair Care&gt;Shampoo"). Borrowed from <a href="http://www.heppnetz.de/ontologies/goodrelations/v1#category">GoodRelations' category property</a>.  When possible, well-defined categorizations (e.g. <code>naics</code>) are preferred.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin13Prefix</code></th>
+          <td class="prop-ect">
+
+
+
+	    Text
+
+
+          </td>
+          <td class="prop-desc">GTIN-13 company prefix(es) referring to this brand. <a href="http://www.globalproductlist.com/">GlobalProductList.com</a> is one example of a list of such prefixes. To turn a 12-digit UPC code into a GTIN-13, just prepend a leading zero. Based on <a href="http://schema.org/Product">schema.org/Product</a>'s <code>gtin13</code> property.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin14Prefix</code></th>
+          <td class="prop-ect">
+
+
+
+	    Text
+
+
+          </td>
+          <td class="prop-desc">GTIN-14 company prefix(es) referring to this brand. Based on <a href="http://schema.org/Product">schema.org/Product</a>'s <code>gtin14</code> property. Equivalent to <code>gtin13Prefix</code> plus a leading 0.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>infoUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of third-party articles about this brand (e.g. on Wikipedia). URLs controlled by this brand's owner go under <code>url</code>; URLs where you can buy products with this brand go under <code>purchaseUrl</code>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isicV4</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code(s) most relevant to this brand. Borrowed from <a href="Organization">Organization</a>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>naics</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The North American Industry Classification System (NAICS) code(s) most relevant to this brand. Borrowed from <a href="Organization">Organization</a></td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>purchaseUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) where you can purchase goods or services from or made by this organization (e.g. on Amazon). Useful for lending economic support to <a href="Good">Good</a> organizations, and to help a <a href="BuyersGuide">BuyersGuide</a> API support itself through affiliate programs. It does not matter whether the URL is controlled by this organization.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>spatial</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Place">Place</a>
+
+
+          </td>
+          <td class="prop-desc">Place or places where this brand is marketed (e.g. Australia), to prevent showing irrelevant brands to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
+        </tr>
+
+        </table>
+
+
+
+
+
+
+
+
+  <div class="attrib"><a href="http://schema.org/Brand">schema.org/Brand</a> is derived from the GoodRelations Vocabulary for E-Commerce, created by Martin Hepp. GoodRelations is a data model for sharing e-commerce data on the Web that can be expressed in a variety of syntaxes, including RDFa and HTML5 Microdata. More information about GoodRelations can be found at <a href="http://purl.org/goodrelations/">http://purl.org/goodrelations/</a>.</div>
+
+
+</body>
+</html>
