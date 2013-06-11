@@ -23,14 +23,14 @@ don't have the time to sort through all that data.
 The end-goal of this project is to create an API for buyer's guides, so that every
 buyer's guide out there can be available on any app.
 
-The first major step is to define a [microdata](http://schema.org/docs/gs.html) format for buyer's guides, which I've begun [here](http://htmlpreview.github.io/?https://github.com/davidmarin/pbg/blob/master/schema/BuyersGuide).
+I've already completed a [proposed microdata format](http://htmlpreview.github.io/?https://github.com/davidmarin/pbg/blob/master/schema/index.html) format for buyer's guides.
 
 Microdata's primary use case is annotating web pages in
-a machine readable way, which means that if you want a buyer's guide to be added to
-the API, all you have to do is write HTML. Microdata also has a little-known [standard
+a machine-readable way, which means that if you want a buyer's guide to be added to
+the API, all you have to do is write HTML. Microdata *also* has a little-known [standard
 JSON format](http://www.whatwg.org/specs/web-apps/current-work/multipage/microdata.html#json), which is great for an API, and for a JSON datastore such as [CouchDB](http://couchdb.apache.org/).
 
-To ensure that the format reflects real use cases, we're going to parse real buyer's guides
+To ensure that the format reflects real use cases, we're going to parse or annotate real buyer's guides
 available on the web, that target a variety of things (corporations, local businesses,
 types of fish). These parsers could also be used to seed a new API with useful data, though if the buzz around the Buycott App is any indication, seeding won't really be
 an issue.
