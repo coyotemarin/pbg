@@ -91,38 +91,38 @@ list-style: inherit;
 padding: 0 0 0 5px;
 margin: 0;
 }
-#mainContent a:link
+a:link
 {
 color: #006600;
 text-decoration: none;
 border-bottom: dotted 1px #006600;
 }
-#mainContent a:visited
+a:visited
 {
 color: #009900;
 text-decoration: none;
 border-bottom: dotted 1px #009900;
 }
-#mainContent a:hover
+a:hover
 {
 border-bottom: none;
 color: #fff;
 background-color: #006600;
 text-decoration: none;
 }
-#mainContent a[href^="http://schema.org/"]:link
+a[href^="http://schema.org/"]:link
 {
 color: #660000;
 text-decoration: none;
 border-bottom: dotted 1px #660000;
 }
-#mainContent a[href^="http://schema.org/"]:visited
+a[href^="http://schema.org/"]:visited
 {
 color: #990000;
 text-decoration: none;
 border-bottom: dotted 1px #990000;
 }
-#mainContent a[href^="http://schema.org/"]:hover
+a[href^="http://schema.org/"]:hover
 {
 border-bottom: none;
 color: #fff;

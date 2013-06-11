@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Buyer's Guide Microdata Schema</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+
+  <div id="mainContent">
+    <h1 class="page-title">Buyer's Guide Microdata Schema</h1>
+
+    <p>Buyer's guides help consumers make conscientious choices by encouraging them to patronize certain companies/brands/products while avoiding others.</p>
+
+    <p>Examples include the <a href="http://www.hrc.org/apps/buyersguide">Human Rights Campaign Buyer's Guide</a>, the <a href="http://seafood.edf.org/">Environmental Defense Fund Seafood Selector</a>, and any number of user-generated campaigns from <a href="http://buycott.com">Buycott</a>. Boycott/buycott campaigns with a single target (e.g. <a href="http://www.boycottkochbrothers.com/">Boycott Koch Industries</a>) count as buyer's guides too.</p>
+
+    <p><a href="http://en.wikipedia.org/wiki/Microdata_(HTML)">Microdata</a> provides a way for organizations to add structured data to the web versions of their buyer's guides, making it easier to write programs that help consumers integrate these guides into their buying decisions. However, current microdata schemas aren't sufficient to support buyer's guides.</p>
+
+    <h2>Proposed new classes and extensions</h2>
+
+    <p>New classes: The core of this schema is the <a href="BuyersGuide">BuyersGuide</a> class, which contains a list of <a href="Judgment">Judgment</a>s of one or more targets. Judgments have a <a href="JudgmentType">JudgmentType</a>, which is an enumeration with one of the following values: <a href="Bad">Bad</a>, <a href="Good">Good</a>, <a href="Improving">Improving</a>, <a href="MixedBag">MixedBag</a>, or <a href="Worsening">Worsening</a>. (See <a href="Judgment">Judgment</a> for more information about why we don't just use <a href="http://schema.org/Rating">schema.org/Rating</a>).</p>
+
+    <p>We also propose extensions to existing classes from <a href="http://schema.org/">schema.org</a>:</p>
+
+    <ul>
+      <li><a href="Brand">Brand</a>
+      <li><a href="Organization">Organization</a>
+      <li><a href="Product">Product</a>
+    </ul>
+
+    <p>These changes help support buyer's guides, but are also generally useful.</p>
+
+    <p>Finally, not all microdata properties are relevant to buyer's guides. We <span class="relevant">highlight</span> properties that are most likely to be relevant to buyer's guides, and provide specific suggestions on how they might be used.</p>
+
+    <h2>Why a microdata schema?</h2>
+
+    <p>To decouple apps and data. Almost all buyer's guides on the internet are available as one or more web pages, but the way you integrate a buyer's guide with buying decisions depend on how the individual guide is published; some have associated mobile apps and/or browser plugins and some do not. If you want to follow multiple buyer's guides (e.g. to get advice on whether to buy a particular product), you typically need to visit multiple websites or open multiple apps.</p>
+
+    <p><a href="http://buycott.com">Buycott</a> partially solves the problem of being able to see multiple buyer's guides associated with a single project, but supports only its own user-generated campaigns. Some users have tried to integrate third-party campaigns, but this is typically done by hand and is error-prone. For example, the <a href="http://www.buycott.com/campaign/375/2013-hrc-buying-guide-workplace-equality">Buycott version of the HRC Buyer's Guide</a> is missing Accor, a company the original guide gives its lowest possible rating to. Buycott also lacks an analog for the HRC's yellow (moderate) category; middle ground is fairly common for buyer's guides that aim to be comprehensive.</p>
+
+    <p>Also note that publishers need not be aware of this schema or annotate their webpages for this schema to be useful. Simply having a clear idea of how a page <em>ought</em> to be annotated gives enough guidance to third parties that they can write a program to parse/annotate the pages in a useful, standard way.</p>
+
+    <h2>What are the technical goals of this schema?</h2>
+
+    <ul>
+      <li>Allow any buyer's guide app to support any buyer's guide
+      <li>Identify the target of a potential purchasing decision, whether by name, URL, unique ID, or barcode, and link it to judgments of relevant buyer's guides
+      <li>Guide consumers to good alternatives to problematic purchases
+      <li>Encode the hierarchy of corporations, brands, and products (so that e.g. targeting a company is equivalent to targeting all its products)
+      <li>Aid discovery of new buyer's guides, through similarity or a search-like interface
+      <li>Allow automated creation of new buyer's guides (e.g. from lobbyists on a bill)
+      <li>Help supporters of a campaign behind a buyer's guide form community and encourage each other
+      <li>Filter out irrelevant buyer's guide targets (e.g. brands not available in the user's country)
+      <li>Help consumers make purchase over the internet from sources supported by buyer's guides
+      <li>Help non-profits that put together buyer's guides get donations
+      <li>Allow a buyer's guide aggregator/search engine/API to be self-supporting through affiliate programs
+    </ul>
+
+  </div>
+
+  <div id="footer">
+    This schema and the look and feel of these pages are partially derived from content on <a href="http://schema.org">schema.org</a> and thus fall under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike License (version 3.0)</a>.
+  </div>
+
+</body>

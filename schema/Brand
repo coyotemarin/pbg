@@ -21,8 +21,9 @@
   </h1>
   <p>A brand is a name used by an organization or business person for labeling a product, product group, or similar.</p>
 
-  <p>This is a proposed extension to <a href="http://schema.org/Brand">schema.org/Brand</a>, not a new class. If you want to use this in a webpage, just use <code>itemtype="http://schema.org/Brand"</code> and include our proposed properties as you see fit.</p>
+  <p><em>This is a proposed extension to <a href="http://schema.org/Brand">schema.org/Brand</a>, not a new class.</em></p>
 
+ <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
 
         <table cellspacing="3" class="definition-table">
         <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>

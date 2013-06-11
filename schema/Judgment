@@ -32,7 +32,7 @@
     <li>The polarized nature of some campaigns gives a strong incentive to polarize numeric ratings, which would make them incomparable anyway.</li>
   </ul>
 
- <p>We <em>do</em> include <a href="http://schema.org/Rating"> as a property.</p>
+ <p>We <em>do</em> include <a href="http://schema.org/Rating">Rating</a> as a property to provide an alternate way of forming a short-text description of a judgment.</p>
 
  <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
 

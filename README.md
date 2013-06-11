@@ -45,6 +45,7 @@ we do with a buyer's guide API?
   [opensecrets.org](http://www.opensecrets.org/) or something similar. Support a bill?
   Boycott the companies trying to squash it. Oppose a bill? Boycott the companies behind it.
 * Work our way up the supply chain. If you have a problem with a company like [Cargill](http://www.cargill.com/), which mostly sells to businesses, consumer actions aren't going to have much affect (if it makes you feel better, you can boycott Truvia). However, if we have a way for local businesses to publicly advertise that they subscribe to a particular campaign (e.g. not using Cargill products in their restaurant), then consumers can support those businesses.
+* Support crowdsourced campaigns against a show's advertiser's (like the [StopRush](http://stoprush.net) project does on its own ad-hoc solution now).
 * Apps that work on Android without a network connection. Not really so much to ask.
 * Stuff that no one has imagined yet. Give people the tools, and someone will do something amazing.
 
