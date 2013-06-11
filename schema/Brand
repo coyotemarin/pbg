@@ -235,7 +235,7 @@
 
 
           </td>
-          <td class="prop-desc">URL(s) where you can purchase goods or services from or made by this organization (e.g. on Amazon). Useful for lending economic support to <a href="Good">Good</a> organizations, and to help a <a href="BuyersGuide">BuyersGuide</a> API support itself through affiliate programs. It does not matter whether the URL is controlled by this organization.</td>
+          <td class="prop-desc">URL(s) where you can purchase goods or services marketed under this brand (e.g. on Amazon). Useful for lending economic support to <a href="Good">Good</a> brands, and to help a <a href="BuyersGuide">BuyersGuide</a> API support itself through affiliate programs. It does not matter whether the URL is controlled by the brand's owner.</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">

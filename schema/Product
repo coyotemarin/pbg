@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+
+  <div id="mainContent">
+
+
+  <h1 class="page-title">
+
+
+      <a href="http://schema.org/Thing">Thing</a>
+
+      &gt;
+      <a href="Product">Product</a>
+
+  </h1>
+  <p>A product is anything that is made available for sale—for example, a pair of shoes, a concert ticket, or a car. Commodity services, like haircuts, can also be represented using this type.</p>
+
+  <p>This is a proposed extension to <a href="http://schema.org/Product">schema.org/Product</a>, not a new class. If you want to use this in a webpage, just use <code>itemtype="http://schema.org/Product"</code> and include our proposed properties as you see fit.</p>
+
+
+
+        <table cellspacing="3" class="definition-table">
+        <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>
+               </tr></thead>
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="Thing">Thing</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>additionalType</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>description</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A short description of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>image</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>name</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The name of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>url</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of the official homepage for this item. Use <code>purchaseUrl</code> for places you can buy this item, and <code>infoUrl</code> for pages published by third parties.</td>
+        </tr>
+
+
+
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="http://schema.org/Product">schema.org/Product</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>aggregateRating</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/AggregateRating">AggregateRating</a>
+
+
+          </td>
+          <td class="prop-desc">The overall rating, based on a collection of reviews or ratings, of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>audience</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Audience">Audience</a>
+
+
+          </td>
+          <td class="prop-desc">The intended audience of the item, i.e. the group for whom the item was created.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>brand</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Brand">Brand</a>
+
+
+              or
+
+                <a href="Organization">Organization</a>
+
+
+          </td>
+          <td class="prop-desc">The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person. If you want to point at an organization, the <code>manufacturer</code> property is preferred.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>color</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The color of the product.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>depth</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Distance">Distance</a>
+
+
+              or
+
+                <a href="http://schema.org/QuantitativeValue">QuantitativeValue</a>
+
+
+          </td>
+          <td class="prop-desc">The depth of the product.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin13</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin14</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The GTIN-14 code of the product, or the product to which the offer refers.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>gtin8</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The GTIN-8 code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>height</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Distance">Distance</a>
+
+
+              or
+
+                <a href="http://schema.org/QuantitativeValue">QuantitativeValue</a>
+
+
+          </td>
+          <td class="prop-desc">The height of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>isAccessoryOrSparePartFor</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Product">Product</a>
+
+
+          </td>
+          <td class="prop-desc">A pointer to another product (or multiple products) for which this product is an accessory or spare part.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>isConsumableFor</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Product">Product</a>
+
+
+          </td>
+          <td class="prop-desc">A pointer to another product (or multiple products) for which this product is a consumable.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>isRelatedTo</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Product">Product</a>
+
+
+          </td>
+          <td class="prop-desc">A pointer to another, somehow related product (or multiple products).</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isSimilarTo</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Product">Product</a>
+
+
+          </td>
+          <td class="prop-desc">A pointer to another, functionally similar product (or multiple products).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>itemCondition</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/OfferItemCondition">OfferItemCondition</a>
+
+
+          </td>
+          <td class="prop-desc">A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>logo</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/ImageObject">ImageObject</a>
+
+
+              or
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image for the logo of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>manufacturer</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Organization">Organization</a>
+
+
+          </td>
+          <td class="prop-desc">The manufacturer of the product.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>model</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/ProductModel">ProductModel</a>
+
+
+              or
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>mpn</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>offers</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Offer">Offer</a>
+
+
+          </td>
+          <td class="prop-desc">An offer to sell this item&#x2014;for example, an offer to sell a product, the DVD of a movie, or tickets to an event.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>productID</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The product identifier, such as ISBN. For example: <code>&lt;meta itemprop='productID' content='isbn:123-456-789'/&gt;</code>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>releaseDate</code></th>
+          <td class="prop-ect">
+
+
+
+                Date
+
+
+          </td>
+          <td class="prop-desc">The release date of a product or product model. This can be used to distinguish the exact variant of a product.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>review</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">A review of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>reviews</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">Review of the item (legacy spelling; see singular form, review).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>sku</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>weight</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/QuantitativeValue">QuantitativeValue</a>
+
+
+          </td>
+          <td class="prop-desc">The weight of the product.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>width</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Distance">Distance</a>
+
+
+              or
+
+                <a href="http://schema.org/QuantitativeValue">QuantitativeValue</a>
+
+
+          </td>
+          <td class="prop-desc">The width of the item.</td>
+        </tr>
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Proposed additional properties</th></tr></thead>
+        <tbody class="supertype">
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>category</code></th>
+          <td class="prop-ect">
+
+
+
+            Text
+
+
+          </td>
+          <td class="prop-desc">Free-form category for this product (examples: "Candy"). Use &quot;&gt;&quot; to separate parts of a category hierarchy (e.g. "Health and Beauty&gt;Hair Care&gt;Shampoo"). Borrowed from <a href="http://www.heppnetz.de/ontologies/goodrelations/v1#category">GoodRelations' category property</a>.  When possible, well-defined categorizations (e.g. <code>naics</code>) are preferred.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>infoUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) of third-party articles about this product (e.g. on Wikipedia). URLs controlled by this product's manufacturer go under <code>url</code>; URLs where you can buy this product go under <code>purchaseUrl</code>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isicV4</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code(s) most relevant to this product. Borrowed from <a href="Organization">Organization</a>.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>naics</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The North American Industry Classification System (NAICS) code(s) most relevant to this product. Borrowed from <a href="Organization">Organization</a></td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>purchaseUrl</code></th>
+          <td class="prop-ect">
+
+
+
+            URL
+
+
+          </td>
+          <td class="prop-desc">URL(s) where you can purchase this product (e.g. on Amazon). Useful for lending economic support to manufacturers of <a href="Good">Good</a> products, and to help a <a href="BuyersGuide">BuyersGuide</a> API support itself through affiliate programs. It does not matter whether the URL is controlled by the product's manufacturer.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>spatial</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Place">Place</a>
+
+
+          </td>
+          <td class="prop-desc">Place or places where this product is marketed (e.g. Australia), to prevent showing irrelevant products to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
+        </tr>
+
+        </table>
+
+  <h3>More specific types</h3>
+
+  <p>See <a href="http://schema.org/Product">schema.org/Product</a> for subclasses.</p>
+
+  <div class="attrib"><a href="http://schema.org/Product">schema.org/Product</a> is derived from the GoodRelations Vocabulary for E-Commerce, created by Martin Hepp. GoodRelations is a data model for sharing e-commerce data on the Web that can be expressed in a variety of syntaxes, including RDFa and HTML5 Microdata. More information about GoodRelations can be found at <a href="http://purl.org/goodrelations/">http://purl.org/goodrelations/</a>.</div>
+
+
+</body>
+</html>
