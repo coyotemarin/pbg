@@ -25,12 +25,14 @@
   </h1>
   <p>A moral judgment about a given company, brand, product, etc. Designed for use in a <a href="BuyersGuide">BuyersGuide</a>, but probably generally applicable.</p>
 
-  <p>We intentionally avoid using <a href="http://schema.org/Rating">Rating</a> for two reasons:</p>
+  <p>We don't just use <a href="http://schema.org/Rating">Rating</a> directly for two reasons:</p>
 
   <ul>
     <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk making everything an uninspiring gray area.</li>
     <li>The polarized nature of some campaigns gives a strong incentive to polarize numeric ratings, which would make them incomparable anyway.</li>
   </ul>
+
+ <p>We <em>do</em> include <a href="http://schema.org/Rating"> as a property.</p>
 
  <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
 
@@ -93,7 +95,7 @@
 
 
           </td>
-          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott".</td>
+          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott". If this is not set, we can also derive a description from <code>rating</code>.</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -147,6 +149,18 @@
           <td class="prop-desc">Moral judgment of <code>target</code> (good/bad/mixed). You <em>may</em> omit this if you want to include a target for the sake of completeness, but don't yet have enough information to judge it.</td>
         </tr>
 
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>rating</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Rating">Rating</a>
+
+
+          </td>
+          <td class="prop-desc">One or more ratings, in a system specific to its source. Ratings from different sources are not considered directly comparable.</td>
+        </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
           <code>spatial</code></th>
