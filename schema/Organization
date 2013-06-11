@@ -704,5 +704,12 @@
 
   <p>We also support the <code>WorkersUnion</code> subtype, which has been <a href="http://www.w3.org/wiki/WebSchemas/WorkersUnionSchema">accepted by the W3C</a> but is not yet on schema.org. It has no additional properties.</p>
 
+  </div>
+
+
+  <div id="footer">
+    This schema and the look and feel of these pages are partially derived from content on <a href="http://schema.org">schema.org</a> and thus fall under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike License (version 3.0)</a>.
+  </div>
+
 </body>
 </html>

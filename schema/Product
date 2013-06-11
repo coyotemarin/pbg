@@ -566,8 +566,13 @@
 
   <p>See <a href="http://schema.org/Product">schema.org/Product</a> for subclasses.</p>
 
+  </div>
+
   <div class="attrib"><a href="http://schema.org/Product">schema.org/Product</a> is derived from the GoodRelations Vocabulary for E-Commerce, created by Martin Hepp. GoodRelations is a data model for sharing e-commerce data on the Web that can be expressed in a variety of syntaxes, including RDFa and HTML5 Microdata. More information about GoodRelations can be found at <a href="http://purl.org/goodrelations/">http://purl.org/goodrelations/</a>.</div>
 
+  <div id="footer">
+    This schema and the look and feel of these pages are partially derived from content on <a href="http://schema.org">schema.org</a> and thus fall under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike License (version 3.0)</a>.
+  </div>
 
 </body>
 </html>
