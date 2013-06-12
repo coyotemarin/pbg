@@ -17,7 +17,10 @@
       <a href="http://schema.org/Thing">Thing</a>
 
       &gt;
-      <a href="http://schema.org/Intangible">Intangible</a>
+      <a href="http://schema.org/CreativeWork">CreativeWork</a>
+
+      &gt;
+      <a href="http://schema.org/Review">Review</a>
 
       &gt;
       <a href="Judgment">Judgment</a>
@@ -25,14 +28,14 @@
   </h1>
   <p>A moral judgment about a given company, brand, product, etc. Designed for use in a <a href="BuyersGuide">BuyersGuide</a>, but probably generally applicable.</p>
 
-  <p>We don't just use <a href="http://schema.org/Rating">Rating</a> directly for two reasons:</p>
+  <p>Unlike its parent class, <a href="http://schema.org/Review">Review</a>, Judgment de-emphasizes rating in favor of the <a href="JudgmentType">JudgmentType</a> enumeration, which is basically just good/bad/mixed. We do this for two reasons:</p>
 
   <ul>
     <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk making everything an uninspiring gray area.</li>
     <li>The polarized nature of some campaigns gives a strong incentive to polarize numeric ratings, which would make them incomparable anyway.</li>
   </ul>
 
- <p>We <em>do</em> include <a href="http://schema.org/Rating">Rating</a> as a property to provide an alternate way of forming a short-text description of a judgment.</p>
+  <p>Many buyer's guides do have their own underlying rating system, and you can include this via the <code>reviewRating</code> field, but when showing Judgments from different <a href="BuyersGuide">BuyersGuide</a>s, it is best to sort them by <code>judgmentType</code> rather than <code>reviewRating</code>.</p>
 
  <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
 
@@ -69,7 +72,7 @@
 
 
           </td>
-          <td class="prop-desc">A somewhat larger description of the judgment, suitable for display in a tooltip/hover popup. Example: "Businesses/brands that and receive a moderate workplace equality score."</td>
+          <td class="prop-desc">A somewhat larger description of the judgment, suitable for display in a tooltip/hover popup. Example: "Businesses/brands that and receive a moderate workplace equality score.". Information specific to the particular <code>itemReviewed</code> should go in <code>reviewBody</code>.</td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
@@ -95,7 +98,7 @@
 
 
           </td>
-          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott". If this is not set, we can also derive a description from <code>rating</code>.</td>
+          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott".</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -108,7 +111,7 @@
 
 
           </td>
-          <td class="prop-desc">URL of a page explaining the details behind this particular judgment. <a href="http://www.hrc.org/apps/buyersguide/profile.php?orgid=1227">Example</a></td>
+          <td class="prop-desc">URL of the page explaining the details behind this particular judgment. <a href="http://www.hrc.org/apps/buyersguide/profile.php?orgid=1227">Example</a></td>
         </tr>
 
 
@@ -116,12 +119,723 @@
 
 
 
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="CreativeWork">CreativeWork</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>about</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Thing">Thing</a>
+
+
+          </td>
+          <td class="prop-desc">The subject matter of the content.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>accountablePerson</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">Specifies the Person that is legally accountable for the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>aggregateRating</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/AggregateRating">AggregateRating</a>
+
+
+          </td>
+          <td class="prop-desc">The overall rating, based on a collection of reviews or ratings, of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>alternativeHeadline</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A secondary title of the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>associatedMedia</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/MediaObject">MediaObject</a>
+
+
+          </td>
+          <td class="prop-desc">The media objects that encode this creative work. This property is a synonym for encodings.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>audience</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Audience">Audience</a>
+
+
+          </td>
+          <td class="prop-desc">The intended audience of the item, i.e. the group for whom the item was created.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>audio</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/AudioObject">AudioObject</a>
+
+
+          </td>
+          <td class="prop-desc">An embedded audio object.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>author</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">The author of this content. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>award</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">An award won by this person or for this creative work.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>awards</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Awards won by this person or for this creative work. (legacy spelling; see singular form, award)</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>comment</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/UserComments">UserComments</a>
+
+
+          </td>
+          <td class="prop-desc">Comments, typically from users, on this CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>contentLocation</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Place">Place</a>
+
+
+          </td>
+          <td class="prop-desc">The location of the content.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>contentRating</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Official rating of a piece of content&#x2014;for example,'MPAA PG-13'.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>contributor</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">A secondary contributor to the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>copyrightHolder</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">The party holding the legal copyright to the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>copyrightYear</code></th>
+          <td class="prop-ect">
+
+
+
+                Number
+
+
+          </td>
+          <td class="prop-desc">The year during which the claimed copyright for the CreativeWork was first asserted.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>creator</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">The creator/author of this CreativeWork or UserComments. This is the same as the Author property for CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>dateCreated</code></th>
+          <td class="prop-ect">
+
+
+
+                Date
+
+
+          </td>
+          <td class="prop-desc">The date on which the CreativeWork was created.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>dateModified</code></th>
+          <td class="prop-ect">
+
+
+
+                Date
+
+
+          </td>
+          <td class="prop-desc">The date on which the CreativeWork was most recently modified.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>datePublished</code></th>
+          <td class="prop-ect">
+
+
+
+                Date
+
+
+          </td>
+          <td class="prop-desc">Date of first broadcast/publication.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>discussionUrl</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">A link to the page containing the comments of the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>editor</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">Specifies the Person who edited the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>educationalAlignment</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/AlignmentObject">AlignmentObject</a>
+
+
+          </td>
+          <td class="prop-desc">An alignment to an established educational framework.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>educationalUse</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The purpose of a work in the context of education; for example, 'assignment', 'group work'.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>encoding</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/MediaObject">MediaObject</a>
+
+
+          </td>
+          <td class="prop-desc">A media object that encode this CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>encodings</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/MediaObject">MediaObject</a>
+
+
+          </td>
+          <td class="prop-desc">The media objects that encode this creative work (legacy spelling; see singular form, encoding).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>genre</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Genre of the creative work</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>headline</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Headline of the article</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>inLanguage</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The language of the content. please use one of the language codes from the <a href='http://tools.ietf.org/html/bcp47'>IETF BCP 47 standard.</a></td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>interactionCount</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A count of a specific user interactions with this item&#x2014;for example, <code>20 UserLikes</code>, <code>5 UserComments</code>, or <code>300 UserDownloads</code>. The user interaction type should be one of the sub types of <a href='UserInteraction'>UserInteraction</a>.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>interactivityType</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The predominant mode of learning supported by the learning resource. Acceptable values are 'active', 'expositive', or 'mixed'.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isBasedOnUrl</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">One or more sources providing supporting (third-party) documentation for this particular judgment. Compare to <code>url</code>, which is generally hosted by the publisher of this judgment.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>isFamilyFriendly</code></th>
+          <td class="prop-ect">
+
+
+
+                Boolean
+
+
+          </td>
+          <td class="prop-desc">Indicates whether this content is family friendly.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>keywords</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The keywords/tags used to describe this content.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>learningResourceType</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The predominant type or kind characterizing the learning resource. For example, 'presentation', 'handout'.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>mentions</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Thing">Thing</a>
+
+
+          </td>
+          <td class="prop-desc">Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>offers</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Offer">Offer</a>
+
+
+          </td>
+          <td class="prop-desc">An offer to sell this item&#x2014;for example, an offer to sell a product, the DVD of a movie, or tickets to an event.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>provider</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+              or
+
+                <a href="http://schema.org/Person">Person</a>
+
+
+          </td>
+          <td class="prop-desc">Specifies the Person or Organization that distributed the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>publisher</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+          </td>
+          <td class="prop-desc">The publisher of the creative work.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>publishingPrinciples</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">Link to page describing the editorial principles of the organization primarily responsible for the creation of the CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>review</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">A review of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>reviews</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">Review of the item (legacy spelling; see singular form, review).</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>sourceOrganization</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Organization">Organization</a>
+
+
+          </td>
+          <td class="prop-desc">The Organization on whose behalf the creator was working.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>text</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The textual content of this CreativeWork.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>thumbnailUrl</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">A thumbnail image relevant to the Thing.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>timeRequired</code></th>
+          <td class="prop-ect">
+
+
+
+                Duration
+
+
+          </td>
+          <td class="prop-desc">Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>typicalAgeRange</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">The typical range of ages the content's intendedEndUser, for example '7-9', '11-'.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>version</code></th>
+          <td class="prop-ect">
+
+
+
+                Number
+
+
+          </td>
+          <td class="prop-desc">The version of the CreativeWork embodied by a specified resource.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>video</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/VideoObject">VideoObject</a>
+
+
+          </td>
+          <td class="prop-desc">An embedded video object.</td>
+        </tr>
+
 
 
 
 
         <thead class="supertype"><tr>
-            <th class="supertype-name" colspan="3">Properties from <a href="Rating">Judgment</a></th></tr></thead>
+            <th class="supertype-name" colspan="3">Properties from <a href="http://schema.org/Review">Review</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>itemReviewed</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Thing">Thing</a>
+
+
+          </td>
+          <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>).</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>reviewBody</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">Details on why this particular judgment was applied to this <code>itemReviewed</code>. For example, "Cadbury is moving toward Fair Tade Certification." Compare to <code>description</code>, which is a more through explanation about the type of judgment.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>reviewRating</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="http://schema.org/Rating">Rating</a>
+
+
+          </td>
+          <td class="prop-desc">A rating in a system specific to its source. Ratings from different sources are not considered directly comparable.</td>
+        </tr>
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="Judgment">Judgment</a></th></tr></thead>
         <tbody class="supertype">
 
 
@@ -146,20 +860,11 @@
 
 
           </td>
-          <td class="prop-desc">Moral judgment of <code>target</code> (good/bad/mixed). You <em>may</em> omit this if you want to include a target for the sake of completeness, but don't yet have enough information to judge it.</td>
-        </tr>
-
-        <tr><th class="prop-nam relevant" scope="row">
-          <code>rating</code></th>
-          <td class="prop-ect">
-
-
-
-                <a href="http://schema.org/Rating">Rating</a>
-
-
-          </td>
-          <td class="prop-desc">One or more ratings, in a system specific to its source. Ratings from different sources are not considered directly comparable.</td>
+          <td class="prop-desc">
+	    <p>Moral judgment of <code>itemReviewed</code> (good/bad/mixed).</p>
+	    <p>If this field is omitted, but <code>rating</code> is filled, we infer a judgment type by dividing the rating system into thirds, with the middle range inclusive. So, for a rating ranging from 1 to 5 (the default), 1 and 2 correspond to <a href="Bad">Bad</a>, 3 corresponds to <a href="MixedBag">MixedBag</a>, and 4 and 5 correspond to <a href="Good">Good</a>. In a rating system that ranges from 1 to 4, 1 is <a href="Bad">Bad</a>, 2 and 3 are <a href="MixedBag">MixedBag</a>, and 4 is <a href="Good">Good</a>.</p>
+	    <p>You <em>may</em> omit both <code>judgmentType</code> <em>and</em> <code>reviewRating</code> if you want to include an item for the sake of completeness, but don't yet have enough information to judge it. For example, the EDF Seafood Selector leaves <a href="http://seafood.edf.org/eels">some species of eels</a> unrated but still includes them.</p>
+	  </td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -172,23 +877,8 @@
 
 
           </td>
-          <td class="prop-desc">Place or places where <code>target</code> is relevevant (e.g. the market area of a targeted product), to prevent showing irrelevant judgments to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
+          <td class="prop-desc">Place or places where the judgment is relevant is relevevant (e.g. the market area of a targeted product), to prevent showing irrelevant judgments to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
         </tr>
-
-        <tr><th class="prop-nam relevant" scope="row">
-          <code>target</code></th>
-          <td class="prop-ect">
-
-
-
-                <a href="http://schema.org/Thing">Thing</a>
-
-
-          </td>
-          <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>). You <em>may</em> include multiple targets in the same judgment as a shorthand for applying an identical judgment to each target.</td>
-        </tr>
-
-
 
          </table>
   </div>

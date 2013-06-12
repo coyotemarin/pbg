@@ -544,7 +544,7 @@
 
 
           </td>
-          <td class="prop-desc">One or more sources used to create this buyer's buide.</td>
+          <td class="prop-desc">One or more sources used to create this buyer's guide. Individual <a href="Judgment">Judgment</a>s also have their own <code>isBasedOnUrl</code>.</td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
