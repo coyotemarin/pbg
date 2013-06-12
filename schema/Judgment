@@ -26,7 +26,7 @@
       <a href="Judgment">Judgment</a>
 
   </h1>
-  <p>A moral judgment about a given company, brand, product, etc. Designed for use in a <a href="BuyersGuide">BuyersGuide</a>, but probably generally applicable.</p>
+  <p>A moral judgment about a given company, brand, product, local business, etc. Designed for use in a <a href="BuyersGuide">BuyersGuide</a>, but probably generally applicable.</p>
 
   <p>Unlike its parent class, <a href="http://schema.org/Review">Review</a>, Judgment de-emphasizes rating in favor of the <a href="JudgmentType">JudgmentType</a> enumeration, which is basically just good/bad/mixed. We do this for two reasons:</p>
 
