@@ -92,8 +92,23 @@ def main():
         if len(tds) == 1:
             add_itemprop(tr, 'judgment', 'BuyersGuideJudgment')
 
-            add_itemprop(tds[0].strong, 'name')
-            add_itemprop(tds[0].normal, 'description')
+            add_itemprop(tr.td.strong, 'name')
+            add_itemprop(tr.td.normal, 'description')
+
+            rating = tr.td.strong.string[1]
+
+            # add meta tag for judgmentType
+            if rating in '345':
+                judgment_type = 'Good'
+            elif rating == '2':
+                judgment_type = 'MixedBag'
+            else:
+                # this handles "Private Label" too
+                judgment_type = 'Bad'
+
+            judgment_type_meta = soup.new_tag(
+                'meta', itemprop='judgmentType', content=judgment_type)
+            tr.td.append(judgment_type_meta)
         else:
             assert_that(len(tds)).equals(6)
 
@@ -139,7 +154,21 @@ def main():
                 add_itemprop(market_span, 'description')
 
 
-    # TODO: add organization info and donateUrl
+    footer = soup.find('div', id='footer')
+
+    add_itemprop(footer, 'author', 'http://schema.org/NGO')
+
+    about_a = footer.find('a', text='Home')
+    add_itemprop(about_a, 'url')
+
+    donate_a = footer.select('div a')
+    assert_that(len(donate_a)).equals(1)
+    add_itemprop(donate_a[0], 'donationUrl')
+
+    # their name doesn't appear in the page! so add it.
+    org_name_tag = soup.new_tag(
+        'meta', itemprop='name', content='The Cornucopia Institute')
+    footer.append(org_name_tag)
 
     print soup
 
