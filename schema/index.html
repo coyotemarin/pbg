@@ -21,16 +21,17 @@
 
     <p>The core of this schema is the <a href="BuyersGuide">BuyersGuide</a> class.</p>
 
-    <p>BuyersGuides contain <a href="Judgment">Judgment</a>s of one or more companies, brands, products, local businesses, etc. <a href="Judgment">Judgment</a> is a subclass of the standard <a href="http://schema.org/Review">schema.org/Review</a> class.</p>
+    <p>BuyersGuides contain one or more reviews (the standard <a href="http://schema.org/Review">schema.org/Review</a> class) of companies, brands, products, local businesses, etc. Reviews can be grouped into <a href="BuyersGuideJudgment">BuyersGuideJudgment</a>s; if that doesn't make sense for the page structure, you can also use the relevant fields from BuyersGuideJudgment directly within the Review (see our proposed extension to <a href="Review">Review</a>).</p>
 
-    <p>Judgments have a <a href="JudgmentType">JudgmentType</a>, which is an enumeration with one of the following values: <a href="Bad">Bad</a>, <a href="Good">Good</a>, <a href="Improving">Improving</a>, <a href="MixedBag">MixedBag</a>, or <a href="Worsening">Worsening</a>. (See <a href="Judgment">Judgment</a> for more information about why we don't just use <a href="http://schema.org/Rating">schema.org/Rating</a>.)</p>
+    <p>BuyersGuideJudgments have a <a href="JudgmentType">JudgmentType</a>, which is an enumeration with one of the following values: <a href="Bad">Bad</a>, <a href="Good">Good</a>, <a href="Improving">Improving</a>, <a href="MixedBag">MixedBag</a>, or <a href="Worsening">Worsening</a>. (See <a href="BuyersGuideJudgment">BuyersGuideJudgment</a> for more information about why we don't just use <a href="http://schema.org/Rating">schema.org/Rating</a>.)</p>
 
-    <p>We also propose adding additional properties to the following <a href="http://schema.org/">schema.org</a> classes:</p>
+    <p>We propose adding additional properties to the following <a href="http://schema.org/">schema.org</a> classes:</p>
 
     <ul>
       <li><a href="Brand">Brand</a>
       <li><a href="Organization">Organization</a>
       <li><a href="Product">Product</a>
+      <li><a href="Review">Review</a>
     </ul>
 
     <p>These changes help support buyer's guides, but are also generally useful.</p>

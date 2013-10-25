@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>BuyersGuideJudgment</title>
+    <link rel="stylesheet" type="text/css"
+          href="css/schemaorg.css">
+</head>
+<body>
+
+  <div id="mainContent">
+
+
+  <h1 class="page-title">
+
+
+      <a href="http://schema.org/Thing">Thing</a>
+
+      &gt;
+      <a href="BuyersGuideJudgment">BuyersGuideJudgment</a>
+
+  </h1>
+  <p>A moral judgment about one or more campaign targets.</p>
+
+  <p>BuyersGuideJudgments in turn contain reviews, each of a single companies, brand, product, local business, etc. This follows the structure of many real buyer's guides on the web. For example, on the <a href="http://www.hotelworkersrising.org/HotelGuide/results.php">Hotel Workers Rising Union Hotel Guide</a>, each section ("Please Patronize", "Risk of Dispute", "ON STRIKE", etc.) would correspond to a separate BuyersGuideJudgment. BuyersGuideJudgments should not be used to group items by things other than moral judgment (e.g. business category).
+
+<p>It is okay for a BuyersGuideJudgment to contain a single review, but you may also simply use <a href="Review">Review</a> directly; we've extended it with the additional fields <code>isPartOf</code> and <code>judgmentType</code>.
+
+  <p>Each BuyersGuideJudgment has a <code>judgmentType</code> (<a href="Good">Good</a>, <a href="Bad">Bad</a>, <a href="MixedBag">MixedBag</a>, etc.). When aggregating information from several buying guide's, it's recommended to focus on these judgment types rather than numerical ratings from the <a href="Review">Review</a>s contained within the JudgmentType, for two reasons:
+
+  <ul>
+    <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk making everything an uninspiring gray area.</li>
+    <li>The polarized nature of some campaigns gives a strong incentive to skew numeric ratings, which would make them incomparable anyway.</li>
+  </ul>
+
+  <p>If a buyer's guide is spread amongst multiple pages, the <code>isPartOf</code> field can be used to point back to buyer's guide's main page.<p>
+
+
+ <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
+
+        <table cellspacing="3" class="definition-table">
+        <thead><tr><th>Property</th><th>Expected Type</th><th>Description</th>
+               </tr></thead>
+
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="http://schema/org/Thing">Thing</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam" scope="row">
+          <code>additionalType</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>description</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A somewhat larger description of the judgment, suitable for display in a tooltip/hover popup. Example: "Businesses/brands that and receive a moderate workplace equality score.". Information specific to the particular <code>itemReviewed</code> should go in <code>reviewBody</code>.</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>image</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of an image of the item.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>name</code></th>
+          <td class="prop-ect">
+
+
+
+                Text
+
+
+          </td>
+          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott".</td>
+        </tr>
+
+        <tr><th class="prop-nam" scope="row">
+          <code>url</code></th>
+          <td class="prop-ect">
+
+
+
+                URL
+
+
+          </td>
+          <td class="prop-desc">URL of the item.</td>
+        </tr>
+
+        <thead class="supertype"><tr>
+            <th class="supertype-name" colspan="3">Properties from <a href="BuyersGuideJudgment">BuyersGuideJudgment</a></th></tr></thead>
+        <tbody class="supertype">
+
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isPartOf</code></th>
+          <td class="prop-ect">
+
+                <a href="http://schema.org/CreativeWork">CreativeWork</a>
+
+
+          </td>
+          <td class="prop-desc">If the buyer's guide is spread across many pages, used to link back to its main page. (e.g. <code>&lt;a href="..." itemprop="isPartOf"&gt;</code>)</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>judgmentType</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="JudgmentType">JudgmentType</a>
+
+
+          </td>
+          <td class="prop-desc">
+	    <p>Moral judgment (good/bad/mixed) of everything in <code>review.itemReviewed</code></p>
+	  </td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>review</code></th>
+          <td class="prop-ect">
+
+
+
+                <a href="Review">Review</a>
+
+
+          </td>
+          <td class="prop-desc">
+	    <p>One or more reviews, each of a single campaign target.</p>
+	  </td>
+        </tr>
+
+        </table>
+  </div>
+
+
+  <div id="footer">
+    This schema and the look and feel of these pages are partially derived from content on <a href="http://schema.org">schema.org</a> and thus fall under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike License (version 3.0)</a>.
+  </div>
+
+</body>
+</html>

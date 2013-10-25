@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Judgment</title>
+    <title>Review</title>
     <link rel="stylesheet" type="text/css"
           href="css/schemaorg.css">
 </head>
@@ -20,22 +20,12 @@
       <a href="http://schema.org/CreativeWork">CreativeWork</a>
 
       &gt;
-      <a href="http://schema.org/Review">Review</a>
-
-      &gt;
-      <a href="Judgment">Judgment</a>
+      <a href="Review">Review</a>
 
   </h1>
-  <p>A moral judgment about a given company, brand, product, local business, etc. Designed for use in a <a href="BuyersGuide">BuyersGuide</a>, but probably generally applicable.</p>
+  <p>A review of the target of a buyer's guide (e.g. a company, brand, product, etc.).</p>
 
-  <p>Unlike its parent class, <a href="http://schema.org/Review">Review</a>, Judgment de-emphasizes rating in favor of the <a href="JudgmentType">JudgmentType</a> enumeration, which is basically just good/bad/mixed. We do this for two reasons:</p>
-
-  <ul>
-    <li>We want to keep the focus on storytelling and right and wrong. Quantitative judgments risk making everything an uninspiring gray area.</li>
-    <li>The polarized nature of some campaigns gives a strong incentive to polarize numeric ratings, which would make them incomparable anyway.</li>
-  </ul>
-
-  <p>Many buyer's guides do have their own underlying rating system, and you can include this via the <code>reviewRating</code> field, but when showing Judgments from different <a href="BuyersGuide">BuyersGuide</a>s, it is best to sort them by <code>judgmentType</code> rather than <code>reviewRating</code>.</p>
+  <p><em>This is a proposed extension to <a href="http://schema.org/Review">schema.org/Review</a>, not a new class.</em></p>
 
  <p><em>Fields relevant to buyer's guides are <span class="relevant">highlighted</span>. Other fields are technically valid but may not ever be used.</em></p>
 
@@ -72,7 +62,10 @@
 
 
           </td>
-          <td class="prop-desc">A somewhat larger description of the judgment, suitable for display in a tooltip/hover popup. Example: "Businesses/brands that and receive a moderate workplace equality score.". Information specific to the particular <code>itemReviewed</code> should go in <code>reviewBody</code>.</td>
+          <td class="prop-desc">
+	  <p><em>Only used for reviews without an enclosing <a href="BuyersGuideJudgment">BuyersGuideJudgment</a>.</em></p>
+	  <p>A somewhat larger description of the judgment, suitable for display in a tooltip/hover popup. Example: "Businesses/brands that and receive a moderate workplace equality score.". Information specific to the particular <code>itemReviewed</code> should go in <code>reviewBody</code>.</p>
+	  </td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
@@ -88,7 +81,7 @@
           <td class="prop-desc">URL of an image of the item.</td>
         </tr>
 
-        <tr><th class="prop-nam relevant" scope="row">
+        <tr><th class="prop-nam" scope="row">
           <code>name</code></th>
           <td class="prop-ect">
 
@@ -98,7 +91,7 @@
 
 
           </td>
-          <td class="prop-desc">A brief (50 characters or less) description of the judgment in an external rating system. Examples: "90%", "4 out of 5: Excellent", "Best Choices", "On Strike", "Buycott".</td>
+          <td class="prop-desc">The name of the item.</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -557,7 +550,7 @@
 
 
           </td>
-          <td class="prop-desc">One or more sources providing supporting (third-party) documentation for this particular judgment. Compare to <code>url</code>, which is generally hosted by the publisher of this judgment.</td>
+          <td class="prop-desc">One or more sources providing supporting (third-party) documentation for this particular review. Compare to <code>url</code>, which is generally hosted by the publisher of this review.</td>
         </tr>
 
         <tr><th class="prop-nam" scope="row">
@@ -805,7 +798,7 @@
 
 
           </td>
-          <td class="prop-desc">The target of this judgment (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>).</td>
+          <td class="prop-desc">The target of this review (e.g. an <a href="Organization">Organization</a> or <a href="Brand">Brand</a>).</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -818,7 +811,7 @@
 
 
           </td>
-          <td class="prop-desc">Details on why this particular judgment was applied to this <code>itemReviewed</code>. For example, "Cadbury is moving toward Fair Tade Certification." Compare to <code>description</code>, which is a more through explanation about the type of judgment.</td>
+          <td class="prop-desc">Details on why this particular review was applied to this <code>itemReviewed</code>. For example, "Cadbury is moving toward Fair Tade Certification." Compare to <code>description</code>, which is a more through explanation about the type of review.</td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -831,11 +824,11 @@
 
 
           </td>
-          <td class="prop-desc">A rating in a system specific to its source. Ratings from different sources are not considered directly comparable.</td>
+          <td class="prop-desc">A rating in a system specific to its source. Ratings from different sources are not considered directly comparable. It is okay to omit rating in favor of <code>judgmentType</code></td>
         </tr>
 
         <thead class="supertype"><tr>
-            <th class="supertype-name" colspan="3">Properties from <a href="Judgment">Judgment</a></th></tr></thead>
+             <th class="supertype-name" colspan="3">Proposed additional properties</th></tr></thead>
         <tbody class="supertype">
 
 
@@ -847,7 +840,22 @@
 
 
           </td>
-          <td class="prop-desc">Brief description (50 characters or less) of information which is relevant but not the main point of the judgment. For example "High in Mercury" for a campaign which is about saving fisheries.</td>
+          <td class="prop-desc">Brief description (50 characters or less) of information which is important but not relevant to <code>judgmentType</code>/<code>rating</code>. For example, "High in Mercury" for a campaign which is about saving fisheries.</td>
+        </tr>
+
+        <tr><th class="prop-nam relevant" scope="row">
+          <code>isPartOf</code></th>
+          <td class="prop-ect">
+
+                <a href="http://schema.org/CreativeWork">CreativeWork</a>
+
+
+          </td>
+          <td class="prop-desc">
+	  <p><em>Only used for reviews without an enclosing <a href="BuyersGuideJudgment">BuyersGuideJudgment</a>.</em></p>
+	  <p>If the buyer's guide is spread across many pages, used to link back to its main page. (e.g. <code>&lt;a href="..." itemprop="isPartOf"&gt;</code>).
+	  </p>
+	  </td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
@@ -861,8 +869,9 @@
 
           </td>
           <td class="prop-desc">
+	    <p><em>Only used for reviews without an enclosing <a href="BuyersGuideJudgment">BuyersGuideJudgment</a>.</em></p>
 	    <p>Moral judgment of <code>itemReviewed</code> (good/bad/mixed).</p>
-	    <p>If this field is omitted, but <code>rating</code> is filled, we infer a judgment type by dividing the rating system into thirds, with the middle range inclusive. So, for a rating ranging from 1 to 5 (the default), 1 and 2 correspond to <a href="Bad">Bad</a>, 3 corresponds to <a href="MixedBag">MixedBag</a>, and 4 and 5 correspond to <a href="Good">Good</a>. In a rating system that ranges from 1 to 4, 1 is <a href="Bad">Bad</a>, 2 and 3 are <a href="MixedBag">MixedBag</a>, and 4 is <a href="Good">Good</a>.</p>
+	    <p>If this field is omitted, but <code>rating.ratingValue</code> is filled, we can infer a judgment type by dividing the rating system into thirds, with the middle range inclusive. So, for a rating ranging from 1 to 5 (the default), 1 and 2 correspond to <a href="Bad">Bad</a>, 3 corresponds to <a href="MixedBag">MixedBag</a>, and 4 and 5 correspond to <a href="Good">Good</a>. In a rating system that ranges from 1 to 4, 1 is <a href="Bad">Bad</a>, 2 and 3 are <a href="MixedBag">MixedBag</a>, and 4 is <a href="Good">Good</a>.</p>
 	    <p>You <em>may</em> omit both <code>judgmentType</code> <em>and</em> <code>reviewRating</code> if you want to include an item for the sake of completeness, but don't yet have enough information to judge it. For example, the EDF Seafood Selector leaves <a href="http://seafood.edf.org/eels">some species of eels</a> unrated but still includes them.</p>
 	  </td>
         </tr>
@@ -877,7 +886,7 @@
 
 
           </td>
-          <td class="prop-desc">Place or places where the judgment is relevant is relevevant (e.g. the market area of a targeted product), to prevent showing irrelevant judgments to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
+          <td class="prop-desc">Place or places where the review is relevant is relevevant (e.g. the market area of a targeted product), to prevent showing irrelevant reviews to users. Borrowed from <a href="http://schema.org/Dataset">Dataset</a>.</td>
         </tr>
 
          </table>
