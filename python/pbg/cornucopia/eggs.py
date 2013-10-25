@@ -34,6 +34,36 @@ STATE_NAME_TO_ABBR = {
 }
 
 
+def add_itemscope(element, itemtype):
+    element['itemscope'] = None
+    element['itemtype'] = itemtype
+
+
+def add_itemprop(element, name, itemtype=None):
+    element['itemprop'] = name
+    if itemtype:
+        add_itemscope(element, itemtype)
+
+
+def add_itemref(element, destElement):
+    add_id(destElement)
+    if element.get('itemref'):
+        refs = set(element['itemref'].split())
+        refs.add(destElement['id'])
+        element['itemref'] += ' '.join(sorted(refs))
+    else:
+        element['itemref'] = destElement['id']
+
+
+def add_id(element):
+    if element.get('id'):
+        return
+    if not hasattr(add_id, 'next_id'):
+        add_id.next_id = 0
+    element['id'] = '%05d' % add_id.next_id
+    add_id.next_id += 1
+
+
 def main():
     _, args = OptionParser().parse_args()
     assert_that(len(args)).equals(1)
@@ -42,87 +72,76 @@ def main():
 
     # use html5lib, as the default parser excludes almost all of the body
     soup = BeautifulSoup(html, 'html5lib')
-    judgments = []
 
-    table = soup.find('table', {'id': 'organic-egg-scorecard'})
+    # the whole thing is the Buyer's Guide
+    add_itemscope(soup.body, 'BuyersGuide')
 
-    trs = table.find_all('tr')
-    assert len(trs) > 20
+    # find the name of the Buyer's Guide
+    name_spans = soup.select('table table span.style26')
+    assert_that(len(name_spans)).equals(1)
+    add_itemprop(name_spans[0], 'name')
 
-    for tr in trs:
+    scorecard_table = soup.find('table', {'id': 'organic-egg-scorecard'})
+
+    trs = scorecard_table.find_all('tr')
+    assert_that(len(trs)).is_greater_than(20)
+
+    # skip the column headers
+    for tr in trs[1:]:
         tds = tr.find_all('td')
-        if len(tds) == 6:
-            judgment = Item('Judgment')
-            if not tds[0].a:
-                continue
+        if len(tds) == 1:
+            add_itemprop(tr, 'judgment', 'BuyersGuideJudgment')
 
-            brand_name = tds[0].a.string.strip()
-            company_name = tds[0].i.string
-            assert_that(company_name).starts_with('by ')
-            company_name = company_name[3:].strip()
+            add_itemprop(tds[0].strong, 'name')
+            add_itemprop(tds[0].normal, 'description')
+        else:
+            assert_that(len(tds)).equals(6)
 
-            brand = Item('Brand')
-            brand.set('name', brand_name)
+            add_itemprop(tr, 'reviewOfTarget', 'http://schema.org/Review')
 
-            target = Item('Corporation')
-            target.set('name', company_name)
-            target.set('brand', brand)
+            # first column contains brand and company name
+            add_itemprop(tds[0], 'itemReviewed', 'http://schema.org/Brand')
 
-            judgment.set('target', target)
+            name_a = tds[0].a
+            add_itemprop(name_a, 'infoUrl')
+            name_span = name_a.string.wrap(soup.new_tag('span'))
+            add_itemprop(name_span, 'name')
 
-            rating = int(tds[1].string)
-            if rating >= 3:
-                judgment_type = 'Good'
-            elif rating == 2:
-                judgment_type = 'Mixed'
-            else:
-                judgment_type = 'Bad'
+            add_itemprop(tds[0].i, 'brandOf', 'http://schema.org/Company')
 
-            judgment.set('judgmentType', judgment_type)
-            judgment.set('name', '%d out of 5' % rating)
+            assert_that(len(tds[0].i.contents)).equals(1)
+            company_str = tds[0].i.contents[0]
+            assert_that(company_str).starts_with('by ')
+            company_name_span = soup.new_tag('span')
+            company_name_span.string = company_str[3:]
+            tds[0].i.string = company_str[:3]
+            tds[0].i.append(company_name_span)
+            add_itemprop(company_name_span, 'name')
 
-            location = tds[2].string
-            if location and location.strip():
-                parts = location.strip().split(', ')
-                assert_that(len(parts)).ge(1).le(2)
+            # second column contains rating
+            add_itemprop(tds[1], 'reviewRating', 'http://schema.org/Rating')
+            rating_span = tds[1].string.wrap(soup.new_tag('span'))
+            add_itemprop(rating_span, 'ratingValue')
 
-                addr = Item('PostalAddress')
-                # this guide only covers US companies
-                addr.set('addressCountry', 'US')
+            # third column contains company location
+            if tds[2].string:
+                add_itemprop(tds[2], 'location', 'http://schema.org/Place')
+                place_name_span = tds[2].string.wrap(soup.new_tag('span'))
+                # don't bother parsing location, for now
+                add_itemprop(place_name_span, 'description')
+                add_itemref(tds[0].i, place_name_span)
 
-                state = parts[-1]
-                if len(state) != 2:
-                    assert_that(STATE_NAME_TO_ABBR).contains(state)
-                    state = STATE_NAME_TO_ABBR[state].upper()
-                addr.set('region', state)
+            # fourth column contains market location
+            if tds[3].string:
+                add_itemprop(tds[3], 'spatial', 'http://schema.org/Place')
+                market_span = tds[3].string.wrap(soup.new_tag('span'))
+                # don't bother parsing location, for now
+                add_itemprop(market_span, 'description')
 
-                if len(parts) == 2:
-                    addr.set('locality', parts[0])
 
-                target.set('location', addr)
+    # TODO: add organization info and donateUrl
 
-            market_area = tds[3].string
-            if market_area and market_area.strip():
-                # TODO: parse this and add it to the "spatial" field
-                judgment.extra['market_area'] = market_area
-
-            judgment.extra['total_score'] = int(tds[4].string)
-
-            judgments.append(judgment)
-
-    assert len(judgments) > 20
-
-    author = Item('NGO')
-    # TODO: parse this from the document
-    author.set('name', 'Organic Egg Scorecard')
-
-    guide = Item('BuyersGuide')
-    guide.set('author', author)
-    # TODO: parse this from document
-    guide.set('name', 'Organic Egg Scorecard')
-    guide.props['judgment'] = judgments
-
-    sys.stdout.write(guide.json())
+    print soup
 
 
 if __name__ == '__main__':

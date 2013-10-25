@@ -75,12 +75,11 @@
         </tr>
 
         <tr><th class="prop-nam" scope="row">
-          <code>image</code></th>
-          <td class="prop-ect">
 
 
 
                 URL
+
 
 
           </td>
@@ -140,12 +139,12 @@
 
           </td>
           <td class="prop-desc">
-	    <p>Moral judgment (good/bad/mixed) of everything in <code>review.itemReviewed</code></p>
+	    <p>Moral judgment (good/bad/mixed) of everything in <code>reviewOfTarget.itemReviewed</code></p>
 	  </td>
         </tr>
 
         <tr><th class="prop-nam relevant" scope="row">
-          <code>review</code></th>
+          <code>reviewOfTarget</code></th>
           <td class="prop-ect">
 
 
@@ -155,7 +154,8 @@
 
           </td>
           <td class="prop-desc">
-	    <p>One or more reviews, each of a single campaign target.</p>
+	    <p>One or more reviews, each of a single campaign target (brand, company, etc.).</p>
+	    <p>By convention, a BuyersGuideJudgment with <code>review</code> not set applies to all subsequent reviews in the same itemscope, up until the next BuyersGuideJudgment (otherwise we'd have to use <code>itemref</code> everywhere to support most page layouts).</p>
 	  </td>
         </tr>
 

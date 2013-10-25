@@ -104,7 +104,7 @@
 
 
           </td>
-          <td class="prop-desc">URL of the page explaining the details behind this particular judgment. <a href="http://www.hrc.org/apps/buyersguide/profile.php?orgid=1227">Example</a></td>
+          <td class="prop-desc">URL of the page explaining the details behind this particular judgment. <a href="http://www.hrc.org/apps/buyersguide/profile.php?orgid=1227">Example</a>. If this is not set, by convention, we fall back on <code>itemReviewed.infoUrl</code> (which is easier in many page layouts).</td>
         </tr>
 
 
